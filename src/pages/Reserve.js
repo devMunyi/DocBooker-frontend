@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { DatePicker } from 'antd';
@@ -7,15 +7,23 @@ import { toast } from 'react-toastify';
 function Reserve() {
   const [loading, setLoading] = useState(false);
   const [date, setDate] = useState('');
-  const { doctorId } = useParams();
-  // const antIcon = (
-  //   <LoadingOutlined
-  //     style={{
-  //       fontSize: 24,
-  //     }}
-  //     spin
-  //   />
-  // );
+  const [doctor, setDoctor] = useState(null);
+
+  const { doctorId } = useParams(); // get doctor's id from url
+  const userId = 1; // logged in user Id, here I just used a sample id as 1
+
+  useEffect(() => {
+    const fetchDoctor = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/api/users/1/doctors/1');
+        setDoctor(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchDoctor();
+  }, []);
 
   const handleDateChange = (value, dateString) => {
     console.log('Selected Time: ', value);
@@ -23,7 +31,6 @@ function Reserve() {
   };
 
   const handleBook = async () => {
-    const userId = 1; // logged in user Id, here I just used a sample id as 1
     try {
       setLoading(true);
       const response = await axios.post(
@@ -45,7 +52,6 @@ function Reserve() {
       const { data } = response;
       if (response.status === 201) {
         toast.success('Reservation booked successfully!');
-        console.log('Reservation booked successfully!', data);
       } else {
         throw new Error(data.message || 'Failed to book reservation');
       }
@@ -60,12 +66,12 @@ function Reserve() {
     <div id="reserve-page" className="reservePage">
       <div className="container-fluid reservePage">
         <img
-          src={`${process.env.PUBLIC_URL}/doctor.png`}
+          src={`${doctor?.picture}`}
           alt="Doctor"
           style={{ width: '100%', height: '100vh' }}
         />
         <div className="centered">
-          <h1 className="doc-name pb-2">Dr. Lee - Dermatologist</h1>
+          <h1 className="doc-name pb-2">{`Dr ${doctor?.name} - ${doctor?.specialization}`}</h1>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus
             provident et expedita perferendis dolore perspiciatis odio.
