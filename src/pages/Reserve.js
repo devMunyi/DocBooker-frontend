@@ -15,7 +15,7 @@ function Reserve() {
   useEffect(() => {
     const fetchDoctor = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/users/1/doctors/1');
+        const response = await axios.get(`http://localhost:3000/api/users/${userId}/doctors/${doctorId}`);
         setDoctor(response.data);
       } catch (error) {
         console.log(error);
@@ -23,7 +23,7 @@ function Reserve() {
     };
 
     fetchDoctor();
-  }, []);
+  }, [doctorId]);
 
   const handleDateChange = (value, dateString) => {
     console.log('Selected Time: ', value);
