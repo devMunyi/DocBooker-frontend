@@ -1,15 +1,18 @@
-import React from "react";
-import "./Popup.css";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const Popup = ({ message, confirmAction }) => {
-  return (
-    <div className="popup">
-      <div className="popup-content">
-        <h2>{message}</h2>
-        <button onClick={confirmAction}>OK</button>
-      </div>
+const PopUp = ({ message, confirmAction }) => (
+  <div className="popup">
+    <div className="popup-content">
+      <h2>{message}</h2>
+      <button type="button" onClick={confirmAction}>OK</button>
     </div>
-  );
+  </div>
+);
+
+PopUp.propTypes = {
+  message: PropTypes.string.isRequired,
+  confirmAction: PropTypes.func.isRequired,
 };
 
-export default Popup;
+export default PopUp;

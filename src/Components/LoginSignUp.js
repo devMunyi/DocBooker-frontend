@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import Popup from "./Popup";
+import React, { useState } from 'react';
+import PopUp from './PopUp';
 
 const LoginSignUp = () => {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState('');
   const [showPopup, setShowPopup] = useState(false);
 
   const handleUsernameChange = (event) => {
@@ -16,11 +16,12 @@ const LoginSignUp = () => {
     // If user confirms, make API call to create new user and redirect to landing page
     // If user cancels, do nothing
     // You can use fetch() or any other library of your choice to make the API calls
+
     fetch(`/users/${username}`)
       .then((response) => {
         if (response.ok) {
           // User exists, redirect to landing page
-          window.location.href = "/landing";
+          window.location.href = '/landing';
         } else if (response.status === 404) {
           // User does not exist, show popup to confirm creating new user
           setShowPopup(true);
@@ -34,17 +35,17 @@ const LoginSignUp = () => {
   const handleCreateUser = () => {
     // Make API call to create new user
     // Redirect to landing page
-    fetch(`/users`, {
-      method: "POST",
+    fetch('/users', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ username }),
     })
       .then((response) => {
         if (response.ok) {
           // New user created, redirect to landing page
-          window.location.href = "/landing";
+          window.location.href = '/landing';
         } else {
           // Error creating new user
           console.log(response.statusText);
@@ -58,13 +59,13 @@ const LoginSignUp = () => {
   return (
     <div>
       <h2>Login or Signup</h2>
-      <label>
+      <div>
         Username:
         <input type="text" value={username} onChange={handleUsernameChange} />
-      </label>
-      <button onClick={handleLogin}>Login/Signup</button>
+      </div>
+      <button type="button" onClick={handleLogin}>Login/Signup</button>
       {showPopup && (
-        <Popup
+        <PopUp
           message={`User ${username} not found. Create new user?`}
           confirmAction={handleCreateUser}
         />

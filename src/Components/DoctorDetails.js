@@ -1,18 +1,30 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-function DoctorDetails(props) {
-  const { doctor } = props;
-  const [selectedDate, setSelectedDate] = useState(null);
+function DoctorDetails({ doctor }) {
+  const [selectedDate, setSelectedDate] = useState({
+    date: null,
+    availableTimes: null,
+  });
   const [selectedTime, setSelectedTime] = useState(null);
 
   const handleDateChange = (date) => {
-    setSelectedDate(date);
+    const isoDate = date.toISOString();
+    const formattedDate = isoDate.substring(0, 10);
+    console.log('1:', formattedDate);
+    const selected = doctor.availableDates[formattedDate];
+    console.log(selected);
+    if (selected && selected.date) {
+      setSelectedDate(selected);
+    }
+
     setSelectedTime(null);
   };
 
   const handleTimeChange = (event) => {
+    console.log('time now', event.target.value);
     setSelectedTime(event.target.value);
   };
 
@@ -22,6 +34,7 @@ function DoctorDetails(props) {
       date: selectedDate,
       time: selectedTime,
     };
+
     fetch('/api/appointments', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -31,27 +44,24 @@ function DoctorDetails(props) {
         if (response.ok) {
           // appointment was successfully booked
           // redirect to confirmation page or display success message
+          console.log('ok');
         } else {
-          // handle error case
+          console.log('error in data received');
         }
       })
       .catch((error) => {
-        // handle network error
+        console.log('error in receiving data from api', error);
       });
   };
 
-  const availableDates = doctor.availableDates.map((availableDate) => {
-    const availableTimes = availableDate.times.map((time) => (
-      <option key={time} value={time}>
-        {time}
-      </option>
-    ));
-    return (
-      <optgroup key={availableDate.date} label={availableDate.date}>
-        {availableTimes}
-      </optgroup>
-    );
-  });
+  const getDateValue = (dateString) => {
+    if (dateString) {
+      return new Date(dateString);
+    }
+    return false;
+  };
+
+  const getDatesArray = Object.keys(doctor.availableDates).map((dateString) => new Date(`${dateString}T00:00:00Z`));
 
   return (
     <div>
@@ -59,38 +69,45 @@ function DoctorDetails(props) {
       <h3>{doctor.specialization}</h3>
       <img src={doctor.photoUrl} alt="Doctor" />
       <p>{doctor.contact}</p>
+
       <div>
         <h4>Select appointment date:</h4>
         <DatePicker
-          selected={selectedDate}
-          onChange={handleDateChange}
+          selected={getDateValue(selectedDate.date)}
+          onChange={() => handleDateChange}
+          onSelect={handleDateChange}
           dateFormat="yyyy-MM-dd"
           minDate={new Date()}
-          filterDate={(date) =>
-            doctor.availableDates.some(
-              (availableDate) =>
-                availableDate.date.getTime() === date.getTime()
-            )
-          }
+          includeDates={getDatesArray}
         />
       </div>
-      {selectedDate && (
-        <div>
-          <h4>Select appointment time:</h4>
-          <select value={selectedTime} onChange={handleTimeChange}>
-            <option value="">-- Select time --</option>
-            {availableDates.find(
-              (availableDate) =>
-                availableDate.props.label === selectedDate.toDateString()
-            )}
-          </select>
-        </div>
-      )}
-      <button disabled={!selectedDate || !selectedTime} onClick={handleSubmit}>
+
+      <div>
+        <h4>
+          Select appointment time:
+        </h4>
+        <select value={selectedTime} onChange={handleTimeChange}>
+          <option value="">-- Select time --</option>
+          {
+            selectedDate.availableTimes === null
+              ? <div>Here</div>
+              : selectedDate.availableTimes.map((time) => (
+                <option key={time} value={time}>
+                  {time}
+                </option>
+              ))
+            }
+        </select>
+      </div>
+      <button type="button" disabled={!selectedDate || !selectedTime} onClick={handleSubmit}>
         Book Appointment
       </button>
     </div>
   );
 }
+
+DoctorDetails.propTypes = {
+  doctor: PropTypes.oneOfType([PropTypes.object]).isRequired,
+};
 
 export default DoctorDetails;
