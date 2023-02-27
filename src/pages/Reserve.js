@@ -1,36 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { DatePicker } from 'antd';
 import { toast } from 'react-toastify';
 import { SyncOutlined } from '@ant-design/icons';
+import { fetchSingleDoctor } from '../Redux/actions/doctors';
 
 function Reserve() {
-  const [loading, setLoading] = useState(false);
-  const [fetchingData, setFetchingData] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
   const [date, setDate] = useState('');
-  const [doctor, setDoctor] = useState(null);
 
+  const dispatch = useDispatch();
   const { doctorId } = useParams(); // get doctor's id from url
   const userId = 1; // logged in user Id, here I just used a sample id as 1
 
-  useEffect(() => {
-    const fetchDoctor = async () => {
-      try {
-        setFetchingData(true);
-        const response = await axios.get(
-          `http://localhost:3000/api/users/${userId}/doctors/${doctorId}`,
-        );
-        setDoctor(response.data);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setFetchingData(false);
-      }
-    };
+  // get single doctor info form redux store
+  const { singleDoctor, isFetchingData } = useSelector(
+    (state) => state?.doctor,
+  );
 
-    fetchDoctor();
-  }, [doctorId]);
+  // fetch a single doctor
+  useEffect(() => {
+    if (!singleDoctor.name) {
+      dispatch(fetchSingleDoctor(doctorId, userId));
+    }
+  }, [dispatch, doctorId, userId, singleDoctor.name]);
 
   const handleDateChange = (value, dateString) => {
     console.log('Selected Time: ', value);
@@ -39,7 +34,7 @@ function Reserve() {
 
   const handleBook = async () => {
     try {
-      setLoading(true);
+      setIsProcessing(true);
       const response = await axios.post(
         `http://localhost:3000/api/users/${userId}/doctors/${doctorId}/reservations`,
         {
@@ -65,27 +60,33 @@ function Reserve() {
     } catch (error) {
       toast.error(error.message || 'Failed to book reservation');
     } finally {
-      setLoading(false);
+      setIsProcessing(false);
     }
   };
 
   return (
     <div id="reserve-page" className="reservePage">
       <div className="container-fluid reservePage">
-        {fetchingData ? (
-          <div className="d-flex justify-content-center align-items-center" style={{ width: '100%', height: '100vh', backgroundColor: '#589d1a' }}>
+        {isFetchingData ? (
+          <div
+            className="d-flex justify-content-center align-items-center"
+            style={{
+              width: '100%',
+              height: '100vh',
+              backgroundColor: '#589d1a',
+            }}
+          >
             <SyncOutlined spin style={{ fontSize: '32px' }} />
           </div>
-
         ) : (
           <>
             <img
-              src={`${doctor?.picture}`}
+              src={`${singleDoctor?.picture}`}
               alt="Doctor"
               style={{ width: '100%', height: '100vh' }}
             />
             <div className="centered">
-              <h1 className="doc-name pb-2">{`Dr ${doctor?.name} - ${doctor?.specialization}`}</h1>
+              <h1 className="doc-name pb-2">{`Dr ${singleDoctor?.name} - ${singleDoctor?.specialization}`}</h1>
               <p>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus
                 provident et expedita perferendis dolore perspiciatis odio.
@@ -108,7 +109,7 @@ function Reserve() {
                 >
                   Go Back
                 </Link>
-                {loading ? (
+                {isProcessing ? (
                   <button
                     className="btn btn-outline-light"
                     type="button"
