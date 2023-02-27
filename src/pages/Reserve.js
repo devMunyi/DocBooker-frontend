@@ -22,10 +22,8 @@ function Reserve() {
 
   // fetch a single doctor
   useEffect(() => {
-    if (!singleDoctor.name) {
-      dispatch(fetchSingleDoctor(doctorId, userId));
-    }
-  }, [dispatch, doctorId, userId, singleDoctor.name]);
+    dispatch(fetchSingleDoctor({ doctorId, userId }));
+  }, [dispatch, doctorId, userId]);
 
   const handleDateChange = (value, dateString) => {
     console.log('Selected Time: ', value);
