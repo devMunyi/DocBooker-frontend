@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import './css/doctor_details.css';
 
 function DoctorDetails({ doctor }) {
   const [selectedDate, setSelectedDate] = useState({
@@ -9,12 +10,16 @@ function DoctorDetails({ doctor }) {
     availableTimes: null,
   });
   const [selectedTime, setSelectedTime] = useState(null);
+  const [appointmentDetails, setAppointmentDetails] = useState('');
+
+  const handleDetailsChange = (event) => {
+    setAppointmentDetails(event.target.value);
+  };
 
   const handleDateChange = (date) => {
     const isoDate = date.toISOString();
     const formattedDate = isoDate.substring(0, 10);
-    console.log('1:', formattedDate);
-    const selected = doctor.availableDates[formattedDate];
+    const selected = Object.values(doctor.availableDates).find((dt) => dt.date === formattedDate);
     console.log(selected);
     if (selected && selected.date) {
       setSelectedDate(selected);
@@ -24,7 +29,6 @@ function DoctorDetails({ doctor }) {
   };
 
   const handleTimeChange = (event) => {
-    console.log('time now', event.target.value);
     setSelectedTime(event.target.value);
   };
 
@@ -33,6 +37,7 @@ function DoctorDetails({ doctor }) {
       doctorId: doctor.id,
       date: selectedDate,
       time: selectedTime,
+      details: appointmentDetails,
     };
 
     fetch('/api/appointments', {
@@ -61,47 +66,57 @@ function DoctorDetails({ doctor }) {
     return false;
   };
 
-  const getDatesArray = Object.keys(doctor.availableDates).map((dateString) => new Date(`${dateString}T00:00:00Z`));
+  const getDatesArray = Object.values(doctor.availableDates).map((availableTime) => new Date(`${availableTime.date}T00:00:00Z`));
 
   return (
-    <div>
-      <h2>{doctor.name}</h2>
-      <h3>{doctor.specialization}</h3>
-      <img src={doctor.photoUrl} alt="Doctor" />
-      <p>{doctor.contact}</p>
-
-      <div>
-        <h4>Select appointment date:</h4>
-        <DatePicker
-          selected={getDateValue(selectedDate.date)}
-          onChange={() => handleDateChange}
-          onSelect={handleDateChange}
-          dateFormat="yyyy-MM-dd"
-          minDate={new Date()}
-          includeDates={getDatesArray}
-        />
+    <div className="doctor-details">
+      <div className="doctor-details__header">
+        <h2>{doctor.name}</h2>
+        <h3>{doctor.specialization}</h3>
       </div>
+      <div className="doctor-details__body">
+        <img src={doctor.photoUrl} alt="Doctor" />
+        <p>{doctor.contact}</p>
 
-      <div>
-        <h4>
-          Select appointment time:
-        </h4>
-        <select value={selectedTime} onChange={handleTimeChange}>
-          <option value="">-- Select time --</option>
-          {
-            selectedDate.availableTimes === null
-              ? <div>Here</div>
-              : selectedDate.availableTimes.map((time) => (
-                <option key={time} value={time}>
-                  {time}
-                </option>
-              ))
-            }
-        </select>
+        <div className="doctor-details__calendar">
+          <h4>Select appointment date:</h4>
+          <DatePicker
+            selected={getDateValue(selectedDate.date)}
+            onChange={() => handleDateChange}
+            onSelect={handleDateChange}
+            dateFormat="yyyy-MM-dd"
+            minDate={new Date()}
+            includeDates={getDatesArray}
+          />
+        </div>
+
+        <div className="doctor-details__time">
+          <h4>Select appointment time:</h4>
+          <select value={selectedTime} onChange={handleTimeChange}>
+            <option value="">-- Select time --</option>
+            {
+              selectedDate.availableTimes === null
+                ? <div>Here</div>
+                : selectedDate.availableTimes.map((time) => (
+                  <option key={time} value={time}>
+                    {time}
+                  </option>
+                ))
+              }
+          </select>
+        </div>
+
+        <div className="appointment-details">
+          <h4>Appointment details:</h4>
+          <input type="text" value={appointmentDetails} onChange={handleDetailsChange} />
+        </div>
+
+        <div className="doctor-details__book-appointment">
+          <button type="button" disabled={!selectedDate || !selectedTime} onClick={handleSubmit}>
+            Book Appointment
+          </button>
+        </div>
       </div>
-      <button type="button" disabled={!selectedDate || !selectedTime} onClick={handleSubmit}>
-        Book Appointment
-      </button>
     </div>
   );
 }

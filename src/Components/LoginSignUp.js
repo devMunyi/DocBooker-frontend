@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import PopUp from './PopUp';
+import './css/login.css';
 
 const LoginSignUp = () => {
+  const loginUserUrl = 'http://localhost:3000/api/users';
+  const createUserUrl = 'http://localhost:3000//api/users';
   const [username, setUsername] = useState('');
   const [showPopup, setShowPopup] = useState(false);
 
@@ -10,18 +13,12 @@ const LoginSignUp = () => {
   };
 
   const handleLogin = () => {
-    // Make API call to check if user exists with provided username
-    // If user exists, redirect to landing page
-    // If user does not exist, show popup to confirm creating new user
-    // If user confirms, make API call to create new user and redirect to landing page
-    // If user cancels, do nothing
-    // You can use fetch() or any other library of your choice to make the API calls
-
-    fetch(`/users/${username}`)
+    fetch(`${loginUserUrl}/${username}`)
       .then((response) => {
+        console.log(response);
         if (response.ok) {
           // User exists, redirect to landing page
-          window.location.href = '/landing';
+          window.location.href = '/home';
         } else if (response.status === 404) {
           // User does not exist, show popup to confirm creating new user
           setShowPopup(true);
@@ -35,7 +32,7 @@ const LoginSignUp = () => {
   const handleCreateUser = () => {
     // Make API call to create new user
     // Redirect to landing page
-    fetch('/users', {
+    fetch(createUserUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -56,18 +53,24 @@ const LoginSignUp = () => {
       });
   };
 
+  const cancelPopUpAction = () => {
+    setShowPopup(false);
+  };
+
   return (
-    <div>
+    <div className="login-container">
       <h2>Login or Signup</h2>
-      <div>
+      <div className="input-container">
         Username:
-        <input type="text" value={username} onChange={handleUsernameChange} />
+        <input className="username-input" type="text" value={username} onChange={handleUsernameChange} />
       </div>
-      <button type="button" onClick={handleLogin}>Login/Signup</button>
+      <button className="login-btn" type="button" onClick={handleLogin}>Login/Signup</button>
       {showPopup && (
         <PopUp
+          className="popup"
           message={`User ${username} not found. Create new user?`}
           confirmAction={handleCreateUser}
+          cancelAction={cancelPopUpAction}
         />
       )}
     </div>
