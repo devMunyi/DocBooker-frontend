@@ -35,7 +35,7 @@ function DoctorDetails({ doctor }) {
   const handleSubmit = () => {
     const appointment = {
       doctorId: doctor.id,
-      date: selectedDate,
+      date: selectedDate.date,
       time: selectedTime,
       details: appointmentDetails,
     };
@@ -87,6 +87,9 @@ function DoctorDetails({ doctor }) {
             dateFormat="yyyy-MM-dd"
             minDate={new Date()}
             includeDates={getDatesArray}
+            placeholderText="Select date"
+            showYearDropdown
+            showMonthDropdown
           />
         </div>
 

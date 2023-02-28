@@ -13,12 +13,13 @@ const LoginSignUp = () => {
   };
 
   const handleLogin = () => {
+    if (username.trim().length < 1) return false;
     fetch(`${loginUserUrl}/${username}`)
       .then((response) => {
         console.log(response);
         if (response.ok) {
           // User exists, redirect to landing page
-          window.location.href = '/home';
+          window.location.href = '/';
         } else if (response.status === 404) {
           // User does not exist, show popup to confirm creating new user
           setShowPopup(true);
@@ -27,6 +28,7 @@ const LoginSignUp = () => {
       .catch((error) => {
         console.log(error);
       });
+    return true;
   };
 
   const handleCreateUser = () => {
@@ -68,7 +70,7 @@ const LoginSignUp = () => {
       {showPopup && (
         <PopUp
           className="popup"
-          message={`User ${username} not found. Create new user?`}
+          message={`The user "${username}" was not found. Do you want to create a new user?`}
           confirmAction={handleCreateUser}
           cancelAction={cancelPopUpAction}
         />

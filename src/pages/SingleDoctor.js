@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import DoctorDetails from '../components/DoctorDetails';
+import dummyData from '../components/dummyData';
 
 function SingleDoctor() {
+  const doctor = dummyData[0];
   return (
     <div className="container d-flex justify-content-center" style={{ width: '100vh' }}>
-      {/* <Link to={user.id}>{user.name}</Link> */}
+      <DoctorDetails doctor={doctor} />
       <Link to="/reserve/1" className="btn btn-success btn-sm">Reserve</Link>
-      {/* <button className='btn btn-success btn-sm'>Reserve</button> */}
     </div>
   );
 }

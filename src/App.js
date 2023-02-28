@@ -3,15 +3,12 @@ import React from 'react';
 import { ToastContainer } from 'react-toastify'; // will be common for all pages that will need to toast a notification
 import 'react-toastify/dist/ReactToastify.css'; // will be common for all pages that will need to toast a notification
 import './App.css';
-// import dummyData from './Components/dummyData';
-// import LoginSignUp from './Components/LoginSignUp';
-// import DoctorDetails from './Components/DoctorDetails';
-// import AddDoctor from './Components/AddDoctor';
 
 import Doctors from './pages/Doctors';
 import SingleDoctor from './pages/SingleDoctor';
 import NoMatch from './pages/NoMatch';
 import Reserve from './pages/Reserve';
+import LoginSignUp from './components/LoginSignUp';
 
 function App() {
   return (
@@ -19,6 +16,7 @@ function App() {
       <ToastContainer position="top-center" theme="colored" />
       <Routes>
         <Route path="/" element={<Doctors />} />
+        <Route path="/login" element={<LoginSignUp />} />
         <Route path="/doctors/:doctorId" element={<SingleDoctor />} />
         <Route path="/reserve/:doctorId" element={<Reserve />} />
         <Route path="*" element={<NoMatch />} />
