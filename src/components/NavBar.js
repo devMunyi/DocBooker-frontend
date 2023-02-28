@@ -39,7 +39,7 @@ function NavBar() {
           </NavLink>
 
           <NavLink
-            to="/my-reservations"
+            to="/reserve/1/doctor/1"
             style={({ isActive }) => (isActive ? activeNav : undefined)}
             className="menu-item"
           >

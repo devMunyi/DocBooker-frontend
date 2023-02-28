@@ -8,6 +8,7 @@ import Doctors from './pages/Doctors';
 import SingleDoctor from './pages/SingleDoctor';
 import NoMatch from './pages/NoMatch';
 import Reserve from './pages/Reserve';
+import ReservationList from './pages/ReservationList';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Doctors />} />
         <Route path="/doctors/:doctorId" element={<SingleDoctor />} />
         <Route path="/reserve/:doctorId" element={<Reserve />} />
+        <Route path="/reserve/:userId/doctor/:doctorId" element={<ReservationList />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </Router>
