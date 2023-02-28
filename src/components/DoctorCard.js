@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+<<<<<<< HEAD:src/components/DoctorCard.js
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
@@ -21,6 +22,18 @@ function DoctorCard({ doctor }) {
         <button type="button" onClick={doctorSelected} className="btn btn-success btn-sm">
           <h2>{doctor.name}</h2>
         </button>
+=======
+import { Link } from 'react-router-dom';
+
+function DoctorCard({ doctor }) {
+  const detailsUrl = '/doctors/1';
+  return (
+    <div className="doctor-details">
+      <div className="doctor-details__header">
+        <Link to={`${detailsUrl}`} className="btn btn-success btn-sm">
+          <h2>{doctor.name}</h2>
+        </Link>
+>>>>>>> 04a24b0 (Add components and loggic for all doctors view and single doctors view):src/Components/DoctorCard.js
         <h3>{doctor.specialization}</h3>
       </div>
       <div className="doctor-details__body">

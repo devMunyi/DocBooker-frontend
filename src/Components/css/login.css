@@ -1,0 +1,76 @@
+/* CSS for login page */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 5px;
+  width: 90%;
+  margin: auto;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.username-input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.login-btn {
+  background-color: #0077cc;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #0060a3;
+}
+
+.popup {
+  margin-top: 20px;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup .popup-content {
+  background: #fff;
+  width: 30em;
+  height: 14em;
+  padding: 1em;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.popup .popup-content .message {
+  text-align: center;
+}
+
+.popup .popup-content .action-buttons {
+  display: flex;
+  justify-content: space-around;
+}

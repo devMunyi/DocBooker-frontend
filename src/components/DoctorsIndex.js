@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD:src/components/DoctorsIndex.js
 import { useSelector } from 'react-redux';
 import DoctorCard from './DoctorCard';
 
 const DoctorsIndex = () => {
   const { doctors } = useSelector((state) => state.doctors);
 
+=======
+import dummyData from './dummyData';
+import DoctorCard from './DoctorCard';
+
+const DoctorsIndex = () => {
+  const doctors = dummyData;
+>>>>>>> 04a24b0 (Add components and loggic for all doctors view and single doctors view):src/Components/DoctorsIndex.js
   const [page, setPage] = useState(1);
   const pag = 3;
   const pagMax = Math.ceil((doctors.length / pag));
