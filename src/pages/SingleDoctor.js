@@ -1,11 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-<<<<<<< HEAD
 // import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar';
-=======
-
->>>>>>> 4b242d0 (Resolved linters errors)
 import DoctorDetails from '../components/DoctorDetails';
 
 function SingleDoctor() {
