@@ -6,7 +6,6 @@ import selectedDoctorReducer from './reducers/selectedDoctor';
 import allDoctors from './reducers/allDoctors';
 import user from './reducers/user';
 
-
 export default configureStore(
   {
     reducer: {

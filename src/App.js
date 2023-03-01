@@ -25,7 +25,6 @@ function ProtectedRoute() {
   );
 }
 
-
 function App() {
   return (
     <Router>
