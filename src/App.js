@@ -12,6 +12,7 @@ import SingleDoctor from './pages/SingleDoctor';
 import NoMatch from './pages/NoMatch';
 import Reserve from './pages/Reserve';
 import LoginSignUp from './pages/LoginSignUp';
+import ReservationList from './pages/ReservationList';
 
 function ProtectedRoute() {
   const { user } = useSelector((state) => state.user);
@@ -21,7 +22,6 @@ function ProtectedRoute() {
     <Navigate to="/login" />
   );
 }
-
 function App() {
   return (
     <Router>
@@ -31,6 +31,7 @@ function App() {
           <Route path="/" element={<Doctors />} />
           <Route path="/doctors/:doctorId" element={<SingleDoctor />} />
           <Route path="/reserve/:doctorId" element={<Reserve />} />
+          <Route path="/reserve/:userId/doctor/:doctorId" element={<ReservationList />} />
         </Route>
         <Route path="/login" element={<LoginSignUp />} />
         <Route path="*" element={<NoMatch />} />
