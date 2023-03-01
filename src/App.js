@@ -9,6 +9,8 @@ import SingleDoctor from './pages/SingleDoctor';
 import NoMatch from './pages/NoMatch';
 import Reserve from './pages/Reserve';
 import ReservationList from './pages/ReservationList';
+import SingleReservation from './pages/SingleReservation';
+// import UpdateReservation from './pages/UpdateReservation';
 
 function App() {
   return (
@@ -18,7 +20,8 @@ function App() {
         <Route path="/" element={<Doctors />} />
         <Route path="/doctors/:doctorId" element={<SingleDoctor />} />
         <Route path="/reserve/:doctorId" element={<Reserve />} />
-        <Route path="/reserve/:userId/doctor/:doctorId" element={<ReservationList />} />
+        <Route path="/reservations/:doctorId/:reservationId" element={<SingleReservation />} />
+        <Route path="/reservations/:userId/doctor/:doctorId" element={<ReservationList />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </Router>
