@@ -8,7 +8,7 @@ const DoctorsIndex = () => {
 
 =======
 import dummyData from './dummyData';
-import DoctorCard from './DoctorCard';
+import DoctorCard from './DoctorCard.js';
 
 const DoctorsIndex = () => {
   const doctors = dummyData;

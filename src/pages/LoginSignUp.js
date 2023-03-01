@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../Redux/reducers/user';
 
-import PopUp from '../components/PopUp';
+import PopUp from '../components/PopUp.js';
 import './css/login.css';
 
 const LoginSignUp = () => {
