@@ -135,6 +135,7 @@ button[type="button"]:disabled {
 
 .react-datepicker__day--selected {
 <<<<<<< HEAD:src/components/css/doctor_details.css
+<<<<<<< HEAD:src/components/css/doctor_details.css
   background-color: #007bff;
   color: #fff;
 =======
@@ -149,6 +150,13 @@ button[type="button"]:disabled {
 }
 
 .react-datepicker__day--keyboard-selected {
+=======
+  background-color: #007bff;
+  color: #fff;
+}
+
+.react-datepicker__day--keyboard-selected {
+>>>>>>> e56034d (Add logic to prevent navigation until user logs in):src/Components/css/doctor_details.css
   background-color: #fff;
   color: black;
 }
@@ -181,4 +189,3 @@ button[type="button"]:disabled {
   background-color: #007bff;
   color: #fff;
 }
-
