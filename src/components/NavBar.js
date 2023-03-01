@@ -31,15 +31,7 @@ function NavBar() {
           </NavLink>
 
           <NavLink
-            to="/add-doctor"
-            style={({ isActive }) => (isActive ? activeNav : undefined)}
-            className="menu-item"
-          >
-            Add Doctor
-          </NavLink>
-
-          <NavLink
-            to="/reserve/1/doctor/1"
+            to="/my-reservations"
             style={({ isActive }) => (isActive ? activeNav : undefined)}
             className="menu-item"
           >
@@ -47,12 +39,13 @@ function NavBar() {
           </NavLink>
 
           <NavLink
-            to="/add-reservation"
+            to="/add-doctor"
             style={({ isActive }) => (isActive ? activeNav : undefined)}
             className="menu-item"
           >
-            Add Reservation
+            Delete Doctor
           </NavLink>
+
         </nav>
       </aside>
     </>
