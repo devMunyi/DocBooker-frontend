@@ -20,11 +20,9 @@ function DoctorDetails({ doctor }) {
     const isoDate = date.toISOString();
     const formattedDate = isoDate.substring(0, 10);
     const selected = Object.values(doctor.availableDates).find((dt) => dt.date === formattedDate);
-    console.log(selected);
     if (selected && selected.date) {
       setSelectedDate(selected);
     }
-
     setSelectedTime(null);
   };
 

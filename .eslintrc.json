@@ -16,6 +16,12 @@
   "plugins": ["react"],
   "rules": {
     "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
+    "import/extensions": ["error", "ignorePackages", {
+      "js": "never",
+      "jsx": "never",
+      "ts": "never",
+      "tsx": "never"
+    }],
     "react/react-in-jsx-scope": "off",
     "import/no-unresolved": "off",
     "no-shadow": "off"
