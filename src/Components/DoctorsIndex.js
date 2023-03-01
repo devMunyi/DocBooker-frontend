@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import dummyData from './dummyData';
-import DoctorCard from './DoctorCard.js';
+import DoctorCard from './DoctorCard';
 
 const DoctorsIndex = () => {
   const doctors = dummyData;
+  // const { doctors } = useSelector((state) => state.doctors);
+
   const [page, setPage] = useState(1);
   const pag = 3;
   const pagMax = Math.ceil((doctors.length / pag));
