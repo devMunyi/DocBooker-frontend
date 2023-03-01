@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchDoctors } from '../Redux/reducers/allDoctors';
 
 import NavBar from '../components/NavBar';

@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchDoctors = createAsyncThunk('doctors/fetchDoctors', async (username) => {
-  const response = await fetch(`http://localhost:3000/api/users/${username}/doctors/`, {
+  const response = await fetch(`http://localhost:3000/api/users/${username}/doctors`, {
     method: 'GET',
     mode: 'cors',
   });
