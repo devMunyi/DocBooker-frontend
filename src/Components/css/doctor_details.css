@@ -134,13 +134,13 @@ button[type="button"]:disabled {
 }
 
 .react-datepicker__day--selected {
-  background-color:#007bff;
-  color:#fff;
+  background-color: #007bff;
+  color: #fff;
 }
 
 .react-datepicker__day--keyboard-selected {
-  background-color:#fff;
-  color:black;
+  background-color: #fff;
+  color: black;
 }
 
 .react-datepicker__day--today {
@@ -171,4 +171,3 @@ button[type="button"]:disabled {
   background-color: #007bff;
   color: #fff;
 }
-
