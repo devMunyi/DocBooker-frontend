@@ -1,22 +1,38 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router, Routes, Route, Navigate, Outlet,
+} from 'react-router-dom';
 import React from 'react';
-import { ToastContainer } from 'react-toastify'; // will be common for all pages that will need to toast a notification
-import 'react-toastify/dist/ReactToastify.css'; // will be common for all pages that will need to toast a notification
-import './App.css';
+import { useSelector } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+import './App.css';
 import Doctors from './pages/Doctors';
 import SingleDoctor from './pages/SingleDoctor';
 import NoMatch from './pages/NoMatch';
 import Reserve from './pages/Reserve';
+import LoginSignUp from './pages/LoginSignUp';
+
+function ProtectedRoute() {
+  const { user } = useSelector((state) => state.user);
+  return user ? (
+    <Outlet />
+  ) : (
+    <Navigate to="/login" />
+  );
+}
 
 function App() {
   return (
     <Router>
       <ToastContainer position="top-center" theme="colored" />
       <Routes>
-        <Route path="/" element={<Doctors />} />
-        <Route path="/doctors/:doctorId" element={<SingleDoctor />} />
-        <Route path="/reserve/:doctorId" element={<Reserve />} />
+        <Route exact path="/" element={<ProtectedRoute />}>
+          <Route path="/" element={<Doctors />} />
+          <Route path="/doctors/:doctorId" element={<SingleDoctor />} />
+          <Route path="/reserve/:doctorId" element={<Reserve />} />
+        </Route>
+        <Route path="/login" element={<LoginSignUp />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </Router>
