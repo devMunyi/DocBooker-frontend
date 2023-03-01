@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import DoctorDetails from '../components/DoctorDetails';
+import DoctorDetails from '../components/DoctorDetails.js';
 
 function SingleDoctor() {
   const { selectedDoctor } = useSelector((state) => state.selectedDoctor);
