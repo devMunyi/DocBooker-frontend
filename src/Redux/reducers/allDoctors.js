@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchDoctors = createAsyncThunk('doctors/fetchDoctors', async (username) => {
-  const response = await fetch(`http://localhost:3000/api/users/${username}/doctors`, {
+  const response = await fetch(`http://localhost:3000/api/users/${username}/doctors/`, {
     method: 'GET',
     mode: 'cors',
   });
@@ -29,11 +29,11 @@ const doctorsSlice = createSlice({
       .addCase(fetchDoctors.fulfilled, (state, action) => {
         state.status = 'succeeded';
         // Add any fetched posts to the array
-        state.message = action.payload.body;
+        state.doctors = action.payload;
       })
       .addCase(fetchDoctors.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = action.error.message;
+        state.error = action.error.message || 'error occured';
       });
     /* eslint-enable no-param-reassign */
   },
