@@ -2,7 +2,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// export const FETCH_RESERVATIONS = 'reservations_list';
 export const FETCH_RESERVATIONS = 'fectch_reservations';
 export const FETCH_RESERVATION = 'fectch_reservation';
 

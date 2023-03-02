@@ -5,6 +5,7 @@ import reservationReducer from './reducers/reservations';
 import selectedDoctorReducer from './reducers/selectedDoctor';
 import allDoctors from './reducers/allDoctors';
 import user from './reducers/user';
+import reservationReducer from './reducers/reservations';
 
 export default configureStore(
   {
@@ -14,6 +15,7 @@ export default configureStore(
       selectedDoctor: selectedDoctorReducer,
       doctors: allDoctors,
       user,
+      reservations: reservationReducer,
     },
   },
   applyMiddleware(logger),
