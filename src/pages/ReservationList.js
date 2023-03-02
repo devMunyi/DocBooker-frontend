@@ -34,11 +34,7 @@ function ReservationList() {
 
   const handleDoctorChange = (event) => {
     const selectedDoctorId = event.target.value;
-<<<<<<< HEAD
     navigate('/my-reservations');
-=======
-    navigate(`/reserve/${userId}/doctor/${selectedDoctorId}`);
->>>>>>> aaad47c (Fix conflicts and linter errors)
     dispatch(fetchReservations({ userId, doctorId: selectedDoctorId }));
     dispatch(fetchDoctors({ userId, doctorId: selectedDoctorId }));
     dispatch(fetchSingleDoctor({ doctorId: selectedDoctorId, userId }));
