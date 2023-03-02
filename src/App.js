@@ -15,7 +15,6 @@ import ReservationList from './pages/ReservationList';
 import SingleReservation from './pages/SingleReservation';
 // import UpdateReservation from './pages/UpdateReservation';
 import LoginSignUp from './pages/LoginSignUp';
-import ReservationList from './pages/ReservationList';
 
 function ProtectedRoute() {
   const { user } = useSelector((state) => state.user);
