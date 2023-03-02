@@ -21,7 +21,8 @@ const LoginSignUp = () => {
     try {
       const response = await fetch(`${UserUrl}/${username}`);
       if (response.ok) {
-        dispatch(setUser(response.data));
+        const data = await response.json();
+        localStorage.setItem('user', JSON.stringify(data));
         toast.success('Logged in successfully!');
         // User exists, redirect to landing page
         window.location.href = '/';

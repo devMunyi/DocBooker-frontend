@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+// import { Link } from 'react-router-dom';
+import NavBar from '../components/NavBar';
 import DoctorDetails from '../components/DoctorDetails';
 
 function SingleDoctor() {
@@ -11,9 +12,11 @@ function SingleDoctor() {
   }
 
   return (
-    <div className="container d-flex justify-content-center" style={{ width: '100vh' }}>
-      <DoctorDetails doctor={selectedDoctor} />
-      <Link to="/reserve/1" className="btn btn-success btn-sm">Reserve</Link>
+    <div className="page">
+      <NavBar />
+      <main className="content">
+        <DoctorDetails doctor={selectedDoctor} />
+      </main>
     </div>
   );
 }

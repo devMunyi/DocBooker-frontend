@@ -2,7 +2,6 @@ import {
   BrowserRouter as Router, Routes, Route, Navigate, Outlet,
 } from 'react-router-dom';
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -15,7 +14,7 @@ import LoginSignUp from './pages/LoginSignUp';
 import ReservationList from './pages/ReservationList';
 
 function ProtectedRoute() {
-  const { user } = useSelector((state) => state.user);
+  const user = JSON.parse(localStorage.getItem('user'));
   return user ? (
     <Outlet />
   ) : (
