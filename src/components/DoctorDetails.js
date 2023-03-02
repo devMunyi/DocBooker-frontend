@@ -1,18 +1,12 @@
-<<<<<<< HEAD
 import React from 'react';
 import PropTypes from 'prop-types';
-<<<<<<< HEAD:src/components/DoctorDetails.js
-=======
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
->>>>>>> aaad47c (Fix conflicts and linter errors)
 import 'react-datepicker/dist/react-datepicker.css';
 import './css/doctor_details.css';
 
 function DoctorDetails({ doctor }) {
-<<<<<<< HEAD
-=======
   const [selectedDate, setSelectedDate] = useState({
     date: null,
     availableTimes: null,
@@ -74,47 +68,16 @@ function DoctorDetails({ doctor }) {
 
   const getDatesArray = Object.values(doctor.availableDates).map((availableTime) => new Date(`${availableTime.date}T00:00:00Z`));
 
->>>>>>> aaad47c (Fix conflicts and linter errors)
   return (
     <div className="doctor-details">
       <div className="doctor-details__header">
         <h2>{doctor.name}</h2>
-<<<<<<< HEAD
-=======
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-
-import { doctorAdded } from '../Redux/reducers/selectedDoctor';
-
-function DoctorCard({ doctor }) {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const detailsUrl = '/doctors/1';
-
-  const doctorSelected = async () => {
-    dispatch(doctorAdded(doctor));
-    navigate(detailsUrl);
-  };
-
-  return (
-    <div className="doctor-details">
-      <div className="doctor-details__header">
-        <button type="button" onClick={doctorSelected} className="btn btn-success btn-sm">
-          <h2>{doctor.name}</h2>
-        </button>
->>>>>>> e56034d (Add logic to prevent navigation until user logs in):src/Components/DoctorCard.js
-=======
->>>>>>> aaad47c (Fix conflicts and linter errors)
         <h3>{doctor.specialization}</h3>
       </div>
       <div className="doctor-details__body">
         <img src={doctor.photoUrl} alt="Doctor" />
         <p>{doctor.contact}</p>
 
-<<<<<<< HEAD
-        <div className="doctor-details__book-appointment">
-          <button type="button">
-=======
         <div className="doctor-details__calendar">
           <h4>Select appointment date:</h4>
           <DatePicker
@@ -153,7 +116,6 @@ function DoctorCard({ doctor }) {
 
         <div className="doctor-details__book-appointment">
           <button type="button" disabled={!selectedDate || !selectedTime} onClick={handleSubmit}>
->>>>>>> aaad47c (Fix conflicts and linter errors)
             Book Appointment
           </button>
         </div>
