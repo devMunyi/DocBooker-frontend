@@ -24,10 +24,6 @@ function SingleReservation() {
     (state) => state.reservations,
   );
 
-  const handleUpdateClick = async () => {
-    navigate(`/update-reservation/${doctorId}/${reservationId}`);
-  };
-
   const handleDelete = async () => {
     try {
       setIsProcessing(true);
@@ -92,7 +88,6 @@ function SingleReservation() {
             <div className="col-md-3">
               <div className="d-flex flex-column gap-3 actions justify-content-center align-items-center">
                 <button
-                  onClick={handleUpdateClick}
                   type="button"
                   className="btn btn-outline-info btn-sm d-flex justify-content-center align-items-center gap-2"
                 >
