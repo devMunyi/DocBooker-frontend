@@ -1,7 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './css/doctor_details.css';
