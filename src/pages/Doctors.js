@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { fetchDoctors } from '../Redux/reducers/allDoctors';
 
 import NavBar from '../components/NavBar';
-import DoctorsIndex from '../Components/DoctorsIndex';
+import DoctorsIndex from '../components/DoctorsIndex';
 
 function Doctors() {
   const dispatch = useDispatch();
