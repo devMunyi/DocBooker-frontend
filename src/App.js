@@ -10,8 +10,10 @@ import Doctors from './pages/Doctors';
 import SingleDoctor from './pages/SingleDoctor';
 import NoMatch from './pages/NoMatch';
 import Reserve from './pages/Reserve';
-import LoginSignUp from './pages/LoginSignUp';
 import ReservationList from './pages/ReservationList';
+import SingleReservation from './pages/SingleReservation';
+// import UpdateReservation from './pages/UpdateReservation';
+import LoginSignUp from './pages/LoginSignUp';
 
 function ProtectedRoute() {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -30,7 +32,8 @@ function App() {
           <Route path="/" element={<Doctors />} />
           <Route path="/doctors/:doctorId" element={<SingleDoctor />} />
           <Route path="/reserve/:doctorId" element={<Reserve />} />
-          <Route path="/reserve/:userId/doctor/:doctorId" element={<ReservationList />} />
+          <Route path="/reservations/:doctorId/:reservationId" element={<SingleReservation />} />
+          <Route path="/my-reservations" element={<ReservationList />} />
         </Route>
         <Route path="/login" element={<LoginSignUp />} />
         <Route path="*" element={<NoMatch />} />

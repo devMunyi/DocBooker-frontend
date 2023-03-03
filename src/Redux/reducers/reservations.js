@@ -1,8 +1,9 @@
-import { FETCH_RESERVATIONS } from '../actions/reservations';
+import { FETCH_RESERVATIONS, FETCH_RESERVATION } from '../actions/reservations';
 
 // set initial state
 const initialState = {
   reservations: [],
+  reservation: {},
   isFetchingData: false,
 };
 
@@ -18,6 +19,15 @@ const reservationReducer = (state = initialState, action) => {
       return { ...state, isFetchingData: true };
 
     case `${FETCH_RESERVATIONS}/rejected`:
+      return { ...state, isFetchingData: false };
+
+    case `${FETCH_RESERVATION}/fulfilled`:
+      return { ...state, reservation: payload, isFetchingData: false };
+
+    case `${FETCH_RESERVATION}/pending`:
+      return { ...state, isFetchingData: true };
+
+    case `${FETCH_RESERVATION}/rejected`:
       return { ...state, isFetchingData: false };
 
     default:

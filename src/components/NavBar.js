@@ -1,9 +1,9 @@
+/* eslint-disable no-console */
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 function NavBar() {
   const [show, setShow] = useState(false);
-
   const activeNav = {
     textDecoration: 'underline',
   };
@@ -39,27 +39,11 @@ function NavBar() {
           </NavLink>
 
           <NavLink
-            to="/reserve/1/doctor/1"
+            to="/my-reservations"
             style={({ isActive }) => (isActive ? activeNav : undefined)}
             className="menu-item"
           >
             My Reservations
-          </NavLink>
-
-          <NavLink
-            to="/add-reservation"
-            style={({ isActive }) => (isActive ? activeNav : undefined)}
-            className="menu-item"
-          >
-            Add Reservation
-          </NavLink>
-
-          <NavLink
-            to="/add-doctor"
-            style={({ isActive }) => (isActive ? activeNav : undefined)}
-            className="menu-item"
-          >
-            Add Doctor
           </NavLink>
 
           <NavLink

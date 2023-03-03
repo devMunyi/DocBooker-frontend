@@ -26,7 +26,6 @@ function Reserve() {
   }, [dispatch, doctorId, userId]);
 
   const handleDateChange = (value, dateString) => {
-    console.log('Selected Time: ', value);
     setDate(dateString);
   };
 
