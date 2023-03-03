@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { fetchReservations } from '../Redux/actions/reservations';
 import { fetchDoctors } from '../Redux/reducers/allDoctors';
 import { fetchSingleDoctor } from '../Redux/actions/doctors';
+// eslint-disable-next-line import/no-named-as-default
 import NavBar from '../components/NavBar';
 
 function ReservationList() {

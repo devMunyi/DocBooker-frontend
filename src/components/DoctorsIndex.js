@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+// eslint-disable-next-line import/no-named-as-default
 import DoctorCard from './DoctorCard';
 
 const DoctorsIndex = () => {
