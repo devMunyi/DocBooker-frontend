@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import dummyData from './dummyData';
+import { useSelector } from 'react-redux';
 import DoctorCard from './DoctorCard';
 
 const DoctorsIndex = () => {
-  const doctors = dummyData;
-  // const { doctors } = useSelector((state) => state.doctors);
+  const { doctors } = useSelector((state) => state.doctors);
 
   const [page, setPage] = useState(1);
   const pag = 3;
