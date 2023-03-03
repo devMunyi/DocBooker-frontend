@@ -46,8 +46,6 @@ function NavBar() {
             Delete Doctor
           </NavLink>
 
-<<<<<<< HEAD
-=======
           <NavLink
             to="/add-doctor"
             style={({ isActive }) => (isActive ? activeNav : undefined)}
@@ -55,16 +53,6 @@ function NavBar() {
           >
             Add Doctor
           </NavLink>
-
-          <NavLink
-            to="/add-doctor"
-            style={({ isActive }) => (isActive ? activeNav : undefined)}
-            className="menu-item"
-          >
-            Delete Doctor
-          </NavLink>
-
->>>>>>> 04a24b0 (Add components and loggic for all doctors view and single doctors view)
         </nav>
       </aside>
     </>
