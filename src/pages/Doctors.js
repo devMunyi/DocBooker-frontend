@@ -4,6 +4,7 @@ import { fetchDoctors } from '../Redux/reducers/allDoctors';
 
 import NavBar from '../components/NavBar';
 import DoctorsIndex from '../components/DoctorsIndex';
+import './css/doctor_page.css';
 
 function Doctors() {
   const dispatch = useDispatch();
@@ -17,6 +18,10 @@ function Doctors() {
     <div className="page">
       <NavBar />
       <main className="content">
+        <div className="doctor-page-heading">
+          <h1>Available Doctors</h1>
+          <p>Please select a doctor</p>
+        </div>
         <DoctorsIndex />
       </main>
     </div>

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 // import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import DoctorDetails from '../components/DoctorDetails';
+import './css/single_doctor_page.css';
 
 function SingleDoctor() {
   const { selectedDoctor } = useSelector((state) => state.selectedDoctor);
@@ -14,7 +15,7 @@ function SingleDoctor() {
   return (
     <div className="page">
       <NavBar />
-      <main className="content">
+      <main className="content single-doctor-page">
         <DoctorDetails doctor={selectedDoctor} />
       </main>
     </div>
