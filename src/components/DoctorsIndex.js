@@ -28,10 +28,10 @@ const DoctorsIndex = () => {
           )
         }
       </div>
-      <button className={`pag-button prev-button ${page > 1 && 'active-button'}`} type="button" onClick={() => handlePageChange(-1)}>
+      <button data-testid="prev-button" name="prev-button" className={`pag-button prev-button ${page > 1 && 'active-button'}`} type="button" onClick={() => handlePageChange(-1)}>
         <BiLeftArrow />
       </button>
-      <button className={`pag-button next-button ${page < pagMax && 'active-button'}`} type="button" onClick={() => handlePageChange(1)}>
+      <button data-testid="next-button" className={`pag-button next-button ${page < pagMax && 'active-button'}`} type="button" onClick={() => handlePageChange(1)}>
         <BiRightArrow />
       </button>
     </div>

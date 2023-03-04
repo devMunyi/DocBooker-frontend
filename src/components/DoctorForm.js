@@ -93,6 +93,7 @@ function AddDoctorForm() {
           id="name-input"
           value={name}
           onChange={(event) => setName(event.target.value)}
+          data-testid="input-name"
         />
         {nameError && <span className="error-message">Name is required</span>}
       </div>
@@ -103,6 +104,7 @@ function AddDoctorForm() {
           id="email-input"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
+          data-testid="input-email"
         />
         {emailError && <span className="error-message">Email is required</span>}
       </div>
@@ -113,6 +115,7 @@ function AddDoctorForm() {
           id="specialization-input"
           value={specialization}
           onChange={(event) => setSpecialization(event.target.value)}
+          data-testid="input-specialization"
         />
         {specializationError && <span className="error-message">Specialization is required</span>}
       </div>
@@ -123,6 +126,7 @@ function AddDoctorForm() {
           id="picture-url-input"
           value={picture}
           onChange={(event) => setPicture(event.target.value)}
+          data-testid="input-picture"
         />
         {pictureUrlError && <span className="error-message">Picture URL is required</span>}
       </div>
