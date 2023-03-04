@@ -22,7 +22,8 @@ img {
   opacity: 0.1;
 }
 
-.reservePage .btn {
+.reservePage .btn,
+.OneReservationPage .btn {
   border-radius: 200px;
   width: 150px;
 }
