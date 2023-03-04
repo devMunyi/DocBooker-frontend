@@ -1,34 +1,31 @@
 .doctor-details {
   display: flex;
-  flex-direction: column; /* default layout for smaller screens */
+  flex-direction: column;
   gap: 2rem;
 }
 
 @media only screen and (min-width: 768px) {
-  /* layout for larger screens */
   .doctor-details {
     flex-direction: row;
     align-items: center;
   }
 
   .doctor-details .doctor-image {
-    flex: 0 0 40%; /* set width to 40% */
-    margin-right: 20px; /* add some space between sections */
+    flex: 0 0 40%;
+    margin-right: 20px;
   }
 
   .doctor-details .doctor-information {
-    flex: 1; /* use remaining space */
+    flex: 1;
   }
 }
 
-/* Style for the image */
 .doctor-details .doctor-image img {
   width: 100%;
   height: auto;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Style for the information section */
 .doctor-details .doctor-information {
   display: flex;
   flex-direction: column;
@@ -37,28 +34,24 @@
   gap: 1.5rem;
 }
 
-/* Style for the name */
 .doctor-details .doctor-information h2 {
   margin: 0;
   font-size: 24px;
   font-weight: bold;
 }
 
-/* Style for the specialization */
 .doctor-details .doctor-information h3 {
   margin: 5px 0;
   font-size: 18px;
   font-weight: normal;
 }
 
-/* Style for the email */
 .doctor-details .doctor-information p {
   margin: 5px 0;
   font-size: 16px;
   color: #555;
 }
 
-/* Style for the button */
 .doctor-details .book-appointment button {
   margin-top: 10px;
   padding: 10px 20px;
@@ -72,5 +65,5 @@
 }
 
 .doctor-details .book-appointment button:hover {
-  background-color: #4b8e18; /* darker shade on hover */
+  background-color: #4b8e18;
 }
