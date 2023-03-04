@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 const PopUp = ({ message, confirmAction, cancelAction }) => (
   <div className="popup">
     <div className="popup-content">
-      <h2 className="message">{message}</h2>
+      <p className="message">{message}</p>
       <div className="action-buttons">
-        <button type="button" onClick={confirmAction}>OK</button>
         <button type="button" onClick={cancelAction}>CANCEL</button>
+        <button type="button" onClick={confirmAction}>OK</button>
       </div>
     </div>
   </div>
