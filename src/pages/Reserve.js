@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { DatePicker } from 'antd';
@@ -12,8 +12,9 @@ function Reserve() {
   const [date, setDate] = useState('');
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { doctorId } = useParams(); // get doctor's id from url
-  const userId = 1; // logged in user Id, here I just used a sample id as 1
+  const userId = JSON.parse(localStorage.getItem('user')).id; // grab logged in user id
 
   // get single doctor info form redux store
   const { singleDoctor, isFetchingData } = useSelector(
@@ -50,8 +51,12 @@ function Reserve() {
         },
       );
       const { data } = response;
+      const { id } = data;
       if (response.status === 201) {
         toast.success('Reservation booked successfully!');
+        setTimeout(() => {
+          navigate(`/reservations/${doctorId}/${id}`);
+        }, 2500);
       } else {
         throw new Error(data.message || 'Failed to book reservation');
       }
