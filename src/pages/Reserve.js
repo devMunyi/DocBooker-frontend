@@ -31,6 +31,8 @@ function Reserve() {
     setDate(dateString);
   };
 
+  localStorage.setItem('doctor', JSON.stringify(singleDoctor));
+
   const handleBook = async () => {
     try {
       setIsProcessing(true);
