@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import 'react-datepicker/dist/react-datepicker.css';
 import './css/doctor_details.css';
 
@@ -15,9 +16,9 @@ function DoctorDetails({ doctor }) {
         <p>{doctor.contact}</p>
 
         <div className="doctor-details__book-appointment">
-          <button type="button">
+          <Link type="button" to={`/reserve/${doctor.id}`} className="btn btn-sm btn-outline-info rounded-pill py-2 px-4">
             Book Appointment
-          </button>
+          </Link>
         </div>
       </div>
     </div>
