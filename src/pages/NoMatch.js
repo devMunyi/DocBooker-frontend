@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { RollbackOutlined } from '@ant-design/icons';
 
 function NoMatch() {
   return (
@@ -10,7 +11,7 @@ function NoMatch() {
       >
         <div className="d-flex flex-column align-items-center">
           <div className="fs-4">Oops! Page not found.</div>
-          <Link to="/">Home</Link>
+          <Link to="/"><RollbackOutlined style={{ fontSize: '25px', color: '#589d1a' }} title="Go Back" /></Link>
         </div>
       </div>
     </div>
