@@ -33,7 +33,7 @@ function NavBar() {
       <aside className={`sidebar ${show ? 'is-active' : ''}`}>
         <div className="dropdown d-flex justify-content-center align-items-center border-bottom">
           <button
-            className="btn btn-secondary dropdown-toggle"
+            className="btn btn-secondary dropdown-toggle border-0"
             type="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"

@@ -17,7 +17,6 @@ function UpdateReservation() {
   );
 
   const reservation = JSON.parse(localStorage.getItem('reservation'));
-  const singleDoctor = JSON.parse(localStorage.getItem('doctor'));
   const doctors = JSON.parse(localStorage.getItem('doctors'));
 
   const user = JSON.parse(localStorage.getItem('user'));
@@ -34,6 +33,16 @@ function UpdateReservation() {
   };
 
   const handleReservationUpdate = async () => {
+    if (date === '') {
+      toast.error('Date cannot be empty');
+      return;
+    }
+
+    if (date.length !== 10) {
+      toast.error('Invalid date input');
+      return;
+    }
+
     try {
       setIsProcessing(true);
       const response = await axios.put(
@@ -74,12 +83,12 @@ function UpdateReservation() {
     <div id="reserve-page" className="reservePage">
       <div className="container-fluid reservePage">
         <img
-          src={`${singleDoctor?.picture}`}
+          src={`${reservation?.doctorpicture}`}
           alt="Doctor"
           style={{ width: '100%', height: '100vh' }}
         />
         <div className="centered">
-          <h1 className="doc-name pb-2">{`Dr ${singleDoctor?.name} - ${singleDoctor?.specialization}`}</h1>
+          <h1 className="doc-name pb-2">{`Dr ${reservation?.doctorname} - ${reservation?.specialization}`}</h1>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus
             provident et expedita perferendis dolore perspiciatis odio.

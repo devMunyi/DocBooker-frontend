@@ -35,6 +35,16 @@ function Reserve() {
   localStorage.setItem('doctor', JSON.stringify(singleDoctor));
 
   const handleBook = async () => {
+    if (date === '') {
+      toast.error('Date cannot be empty');
+      return;
+    }
+
+    if (date.length !== 10) {
+      toast.error('Invalid date input');
+      return;
+    }
+
     try {
       setIsProcessing(true);
       const response = await axios.post(
