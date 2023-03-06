@@ -6,18 +6,26 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import NavBar from '../components/NavBar';
 import { fetchReservation } from '../Redux/actions/reservations';
+import { fetchSingleDoctor } from '../Redux/actions/doctors';
 
 function SingleReservation() {
   const [isProcessing, setIsProcessing] = useState(false);
   const dispatch = useDispatch();
   const { reservationId, doctorId } = useParams();
-  const userId = JSON.parse(localStorage.getItem('user')).id;
-
   const navigate = useNavigate();
+
+  const userId = localStorage.getItem('user')
+    ? JSON.parse(localStorage.getItem('user')).id
+    : null;
+
+  if (!userId === null) {
+    navigate('/login');
+  }
 
   useEffect(() => {
     console.log('Called');
     dispatch(fetchReservation({ userId, doctorId, reservationId }));
+    dispatch(fetchSingleDoctor({}));
   }, [dispatch, userId, doctorId, reservationId]);
 
   const { reservation, isFetchingData } = useSelector(
