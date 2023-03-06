@@ -1,3 +1,22 @@
+.doctor-card-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.doctor-card-details .delete-doctor-button {
+  border-radius: 10rem;
+  background: rgb(235, 114, 114);
+  color: #fff;
+  border-color: rgb(235, 114, 114);
+  padding: 0.5rem;
+}
+
+.doctor-card-details .delete-doctor-button:hover {
+  background: rgb(169, 13, 13);
+}
+
 .doctor-card-buttonwrap {
   background-color: transparent;
   border: none;
@@ -5,14 +24,6 @@
   cursor: pointer;
   font: inherit;
   padding: 0;
-  width: 90%;
-}
-
-.doctor-card-buttonwrap:hover {
-  background: #e7efe1;
-}
-
-.doctor-card-details {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -20,7 +31,11 @@
   align-items: center;
 }
 
-.doctor-card-details .doctor-image {
+.doctor-card-buttonwrap:hover {
+  background: #e7efe1;
+}
+
+.doctor-card-buttonwrap .doctor-image {
   width: 15rem;
   height: 15rem;
   border-radius: 50%;
@@ -30,7 +45,7 @@
   align-items: center;
 }
 
-.doctor-card-details .doctor-image img {
+.doctor-card-buttonwrap .doctor-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -44,8 +59,6 @@
     cursor: pointer;
     font: inherit;
     padding: 0;
-    width: 26%;
-    min-width: 26%;
     overflow: hidden;
     display: flex;
     justify-content: center;

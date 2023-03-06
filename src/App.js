@@ -19,6 +19,7 @@ import AddDoctor from './pages/AddDoctor';
 import SingleReservation from './pages/SingleReservation';
 import UpdateReservation from './pages/UpdateReservation';
 import LoginSignUp from './pages/LoginSignUp';
+import DeleteDoctors from './pages/DeleteDoctors';
 
 function ProtectedRoute() {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -33,10 +34,17 @@ function App() {
           <Route path="/" element={<Doctors />} />
           <Route path="/doctors/:doctorId" element={<SingleDoctor />} />
           <Route path="/reserve/:doctorId" element={<Reserve />} />
-          <Route path="/reservations/:doctorId/:reservationId" element={<SingleReservation />} />
-          <Route path="/my-reservations" element={<ReservationList />} />
           <Route path="/add/doctor" element={<AddDoctor />} />
           <Route path="reservation/edit/:reservationId" element={<UpdateReservation />} />
+          <Route path="doctors/delete" element={<DeleteDoctors />} />
+          <Route
+            path="/reservations/:doctorId/:reservationId"
+            element={<SingleReservation />}
+          />
+          <Route
+            path="/reservations/:userId/doctor/:doctorId"
+            element={<ReservationList />}
+          />
         </Route>
         <Route path="/login" element={<LoginSignUp />} />
         <Route path="*" element={<NoMatch />} />

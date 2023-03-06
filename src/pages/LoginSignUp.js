@@ -1,14 +1,11 @@
 /* eslint-disable no-console */
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-import { useDispatch } from 'react-redux';
-import { setUser } from '../Redux/reducers/user';
 
 import PopUp from '../components/PopUp';
 import './css/login.css';
 
 const LoginSignUp = () => {
-  const dispatch = useDispatch();
   const UserUrl = 'http://localhost:3000/api/users';
   const [username, setUsername] = useState('');
   const [showPopup, setShowPopup] = useState(false);
@@ -52,9 +49,10 @@ const LoginSignUp = () => {
         body: JSON.stringify({ username }),
       });
       if (response.ok) {
+        const data = await response.json();
         // New user created, redirect to landing page
-        dispatch(setUser(response.data));
         toast.success('User created successfully!');
+        localStorage.setItem('user', JSON.stringify(data));
         window.location.href = '/';
       } else {
         throw new Error('Failed to create user');
