@@ -1,5 +1,9 @@
 import {
-  BrowserRouter as Router, Routes, Route, Navigate, Outlet,
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+  Outlet,
 } from 'react-router-dom';
 import React from 'react';
 import { ToastContainer } from 'react-toastify';
@@ -11,17 +15,14 @@ import SingleDoctor from './pages/SingleDoctor';
 import NoMatch from './pages/NoMatch';
 import Reserve from './pages/Reserve';
 import ReservationList from './pages/ReservationList';
+import AddDoctor from './pages/AddDoctor';
 import SingleReservation from './pages/SingleReservation';
-// import UpdateReservation from './pages/UpdateReservation';
+import UpdateReservation from './pages/UpdateReservation';
 import LoginSignUp from './pages/LoginSignUp';
 
 function ProtectedRoute() {
   const user = JSON.parse(localStorage.getItem('user'));
-  return user ? (
-    <Outlet />
-  ) : (
-    <Navigate to="/login" />
-  );
+  return user ? <Outlet /> : <Navigate to="/login" />;
 }
 function App() {
   return (
@@ -34,6 +35,8 @@ function App() {
           <Route path="/reserve/:doctorId" element={<Reserve />} />
           <Route path="/reservations/:doctorId/:reservationId" element={<SingleReservation />} />
           <Route path="/my-reservations" element={<ReservationList />} />
+          <Route path="/add/doctor" element={<AddDoctor />} />
+          <Route path="reservation/edit/:reservationId" element={<UpdateReservation />} />
         </Route>
         <Route path="/login" element={<LoginSignUp />} />
         <Route path="*" element={<NoMatch />} />

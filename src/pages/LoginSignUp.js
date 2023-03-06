@@ -55,7 +55,7 @@ const LoginSignUp = () => {
         // New user created, redirect to landing page
         dispatch(setUser(response.data));
         toast.success('User created successfully!');
-        window.location.href = '/landing';
+        window.location.href = '/';
       } else {
         throw new Error('Failed to create user');
       }
@@ -72,8 +72,7 @@ const LoginSignUp = () => {
     <div className="login-container">
       <h2>Login or Signup</h2>
       <div className="input-container">
-        Username:
-        <input className="username-input" type="text" value={username} onChange={handleUsernameChange} />
+        <input className="username-input" type="text" value={username} onChange={handleUsernameChange} placeholder="username" />
       </div>
       <button className="login-btn" type="button" onClick={handleLogin}>Login/Signup</button>
       {showPopup && (

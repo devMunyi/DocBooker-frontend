@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { doctorAdded } from '../Redux/reducers/selectedDoctor';
+import './css/doctor_card.css';
 
 function DoctorCard({ doctor }) {
   const dispatch = useDispatch();
@@ -16,18 +17,30 @@ function DoctorCard({ doctor }) {
   };
 
   return (
-    <div className="doctor-details">
-      <div className="doctor-details__header">
-        <button type="button" onClick={doctorSelected} className="btn btn-success btn-sm">
+    <button type="button" onClick={doctorSelected} className="doctor-card-buttonwrap">
+      <div className="doctor-card-details">
+
+        <div className="doctor-image">
+          <img src={doctor.picture} alt="Doctor" />
+        </div>
+        <div className="doctor-information">
           <h2>{doctor.name}</h2>
-        </button>
-        <h3>{doctor.specialization}</h3>
+          <p>
+            {' '}
+            I am a
+            {' '}
+            {doctor.specialization.toLowerCase()}
+          </p>
+          <p>
+            {' '}
+            Email me at:
+            <br />
+            {' '}
+            {doctor.email}
+          </p>
+        </div>
       </div>
-      <div className="doctor-details__body">
-        <img src={doctor.photoUrl} alt="Doctor" />
-        <p>{doctor.contact}</p>
-      </div>
-    </div>
+    </button>
   );
 }
 

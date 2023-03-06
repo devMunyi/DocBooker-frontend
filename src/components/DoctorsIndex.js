@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-// eslint-disable-next-line import/no-named-as-default
+import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
+
 import DoctorCard from './DoctorCard';
+import './css/doctors_index.css';
 
 const DoctorsIndex = () => {
   const { doctors } = useSelector((state) => state.doctors);
+
+  if (doctors) {
+    localStorage.setItem('doctors', JSON.stringify(doctors));
+  }
+
   const [page, setPage] = useState(1);
   const pag = 3;
   const pagMax = Math.ceil((doctors.length / pag));
@@ -17,14 +24,20 @@ const DoctorsIndex = () => {
 
   const filteredDocs = doctors.slice((page - 1) * 3, ((page - 1) * 3) + 3);
   return (
-    <div className="doctors-card-container">
-      {
-        filteredDocs.map(
-          (doctor) => <DoctorCard key={JSON.stringify(doctor)} doctor={doctor} />,
-        )
-      }
-      <button type="button" onClick={() => handlePageChange(-1)}>prev</button>
-      <button type="button" onClick={() => handlePageChange(1)}>next</button>
+    <div className="doctors-index-container">
+      <div className="doctors-card-container">
+        {
+          filteredDocs.map(
+            (doctor) => <DoctorCard key={JSON.stringify(doctor)} doctor={doctor} />,
+          )
+        }
+      </div>
+      <button className={`pag-button prev-button ${page > 1 && 'active-button'}`} type="button" onClick={() => handlePageChange(-1)}>
+        <BiLeftArrow />
+      </button>
+      <button className={`pag-button next-button ${page < pagMax && 'active-button'}`} type="button" onClick={() => handlePageChange(1)}>
+        <BiRightArrow />
+      </button>
     </div>
   );
 };

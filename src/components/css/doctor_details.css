@@ -1,183 +1,196 @@
-div {
-  margin-bottom: 20px;
+img {
+  max-width: 100%;
 }
 
-select {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  width: 100%;
-}
-
-button[type="button"] {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button[type="button"]:hover {
-  background-color: #218838;
-}
-
-button[type="button"]:disabled {
-  background-color: #6c757d;
-  cursor: not-allowed;
-}
-
-.doctor-details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px;
-}
-
-.doctor-details img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  margin-bottom: 20px;
-}
-
-.doctor-details h2,
-.doctor-details h3,
-.doctor-details p {
-  margin: 10px;
-  text-align: center;
-}
-
-.appointment-details {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-}
-
-.appointment-details label {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-.appointment-details input[type="text"] {
-  padding: 10px;
-  font-size: 1.2rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.appointment-details input[type="text"]:focus {
-  outline: none;
-  border: 1px solid #666;
-}
-
-.react-datepicker__input-container {
-  display: block;
+.reservePage {
   position: relative;
-  margin-bottom: 15px;
-}
-
-.react-datepicker__input-container input {
-  width: 100%;
-  height: 40px;
-  padding: 10px 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-.react-datepicker-popper {
-  z-index: 2;
-}
-
-.react-datepicker {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.react-datepicker__header {
-  background-color: #f0f0f0;
-  border-bottom: none;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  padding: 10px;
-}
-
-.react-datepicker__month {
-  margin: 0;
-}
-
-.react-datepicker__day-name,
-.react-datepicker__day,
-.react-datepicker__time-name {
-  display: inline-block;
-  width: 2.5em;
-  line-height: 2.5em;
   text-align: center;
-  margin: 0;
+  color: white;
+  background-color: #589d1a;
+  padding-left: 0;
+  padding-right: 0;
 }
 
-.react-datepicker__current-month,
-.react-datepicker-time__header {
-  margin-top: 0;
-  color: #333;
-  font-weight: bold;
-  font-size: 1.1em;
-  margin-bottom: 10px;
+.res-list {
+  display: flex;
+  flex-direction: row;
 }
 
-.react-datepicker__day--selected {
-  background-color:#007bff;
-  color:#fff;
+.reservePage img {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+  opacity: 0.1;
 }
 
-.react-datepicker__day--keyboard-selected {
-  background-color:#fff;
-  color:black;
+.reservePage .btn,
+.OneReservationPage .btn {
+  border-radius: 200px;
+  width: 150px;
 }
 
-.react-datepicker__day--keyboard-selected {
-  background-color: #007bff;
-  color: #fff;
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-/* 
-.react-datepicker__day--keyboard-selected {
+
+.reservePage .doc-name {
+  border-bottom: 1px solid #e6e2e2;
+}
+
+.date-picker {
+  color: #000;
   background-color: #fff;
-  color: black;
-} */
-
-.react-datepicker__day--today {
-  font-weight: bold;
+  border-radius: 50px;
 }
 
-.react-datepicker__day--disabled {
-  color: #ccc;
-  pointer-events: none;
-}
+/* sidebar  */
 
-.react-datepicker__time-list-item {
-  padding: 5px 10px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.react-datepicker__time-list {
+* {
   margin: 0;
   padding: 0;
-  list-style: none;
-  height: 200px;
-  overflow-y: auto;
-  border-top: 1px solid #ccc;
+  box-sizing: border-box;
+  font-family: 'Fire Sans', sans-serif;
 }
 
-.react-datepicker__time-list-item--selected {
-  background-color: #007bff;
+.page {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  flex: 1 1 0;
+  max-width: 200px;
+  padding: 1.5rem 1rem;
+  background-color: #589d1a;
+}
+
+.sidebar h3 {
+  color: #707793;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.sidebar .menu {
+  margin: 0 -1rem;
+  text-align: center;
+}
+
+.sidebar .menu .menu-item {
+  display: block;
+  padding: 1em;
   color: #fff;
+  text-decoration: none;
+  transition: 0.2s linear;
+}
+
+.sidebar .menu .menu-item:hover,
+.sidebar .menu .menu-item.is-active {
+  color: rgb(17, 0, 255);
+  border-right: 5px solid rgb(56, 7, 236);
+}
+
+.content {
+  flex: 1 1 0;
+  padding: 2rem;
+}
+
+.content h1 {
+  color: #3c3f58;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.content p {
+  color: #707793;
+}
+
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 99px;
+  background-color: #589d1a;
+  cursor: pointer;
+}
+
+.hamburger {
+  position: relative;
+  top: calc(50% - 2px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+}
+
+.hamburger > span,
+.hamburger > span::before,
+.hamburger > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 99px;
+  background-color: #fff;
+  transition-duration: 0.25s;
+}
+
+.hamburger > span::before {
+  content: '';
+  top: -8px;
+}
+
+.hamburger > span::after {
+  content: '';
+  top: 8px;
+}
+
+.menu-toggle.is-active .hamburger > span {
+  transform: rotate(45deg);
+}
+
+.menu-toggle.is-active .hamburger > span::before {
+  top: 0;
+  transform: rotate(0deg);
+}
+
+.menu-toggle.is-active .hamburger > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .content {
+    padding-top: 8rem;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -200px;
+    height: 100vh;
+    width: 100%;
+    max-width: 200px;
+    transition: 0.2s linear;
+  }
+
+  .sidebar.is-active {
+    left: 0;
+  }
 }

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { DatePicker } from 'antd';
 import { toast } from 'react-toastify';
 import { SyncOutlined } from '@ant-design/icons';
+import moment from 'moment';
 import { fetchSingleDoctor } from '../Redux/actions/doctors';
 
 function Reserve() {
@@ -12,8 +13,9 @@ function Reserve() {
   const [date, setDate] = useState('');
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { doctorId } = useParams(); // get doctor's id from url
-  const userId = 1; // logged in user Id, here I just used a sample id as 1
+  const userId = JSON.parse(localStorage.getItem('user')).id; // grab logged in user id
 
   // get single doctor info form redux store
   const { singleDoctor, isFetchingData } = useSelector(
@@ -29,7 +31,19 @@ function Reserve() {
     setDate(dateString);
   };
 
+  localStorage.setItem('doctor', JSON.stringify(singleDoctor));
+
   const handleBook = async () => {
+    if (date === '') {
+      toast.error('Date cannot be empty');
+      return;
+    }
+
+    if (date.length !== 10) {
+      toast.error('Invalid date input');
+      return;
+    }
+
     try {
       setIsProcessing(true);
       const response = await axios.post(
@@ -49,8 +63,12 @@ function Reserve() {
         },
       );
       const { data } = response;
+      const { id } = data;
       if (response.status === 201) {
         toast.success('Reservation booked successfully!');
+        setTimeout(() => {
+          navigate(`/reservations/${doctorId}/${id}`);
+        }, 2500);
       } else {
         throw new Error(data.message || 'Failed to book reservation');
       }
@@ -93,9 +111,10 @@ function Reserve() {
 
               <div className="d-flex gap-3 justify-content-center">
                 <DatePicker
-                  showTime
+                  format="YYYY-MM-DD"
                   onChange={handleDateChange}
-                  className="date-picker"
+                  className="date-picker rounded-0"
+                  disabledDate={(current) => current && current.valueOf() < moment().subtract(1, 'days')}
                 />
               </div>
 
