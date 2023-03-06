@@ -23,7 +23,6 @@ function UpdateReservation() {
   const { id: userId } = user;
 
   const handleDateChange = (value, dateString) => {
-    console.log('Selected Time: ', value);
     setDate(dateString);
   };
 

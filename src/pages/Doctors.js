@@ -12,7 +12,7 @@ function Doctors() {
 
   useEffect(() => {
     dispatch(fetchDoctors(user.username));
-  }, []);
+  }, [dispatch, user.username]);
 
   return (
     <div className="page">

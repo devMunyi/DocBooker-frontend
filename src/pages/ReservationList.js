@@ -10,7 +10,7 @@ import NavBar from '../components/NavBar';
 function ReservationList() {
   const dispatch = useDispatch();
   const reservations = useSelector((state) => state.reservations.reservations);
-  const doctor = useSelector((state) => state.doctors.doctor);
+  // const doctor = useSelector((state) => state.doctors.doctor);
   const doctors = useSelector((state) => state.doctors.doctors);
   const user = JSON.parse(localStorage.getItem('user'));
   const userId = user.id;
@@ -18,10 +18,6 @@ function ReservationList() {
   const navigate = useNavigate();
 
   const params = useMemo(() => ({ userId, doctorId }), [userId, doctorId]);
-
-  console.log('RESERVATIONS => ', reservations);
-  console.log('DOCTOR => ', doctor);
-
   useEffect(() => {
     dispatch(fetchReservations(params));
   }, [dispatch, params]);
@@ -47,28 +43,31 @@ function ReservationList() {
   return (
     <div className="page">
       <NavBar />
-      <main className="content">
-        <h1>My Reservations</h1>
-        <div>Select a doctor:</div>
-        <select id="doctor-select" value={doctorId} onChange={handleDoctorChange}>
+      <main className="container">
+        <h1 className="mt-3">My Reservations</h1>
+        <div className="mt-3">Select a doctor:</div>
+        <select id="doctor-select" value={doctorId} onChange={handleDoctorChange} className="form-select mb-3">
           {doctors.map((doctor) => (
             <option key={doctor.id} value={doctor.id}>{doctor.name}</option>
           ))}
         </select>
-        {reservations && doctor
-          && (
-          <div>
-            <h2>{doctor.name}</h2>
-            <p>{doctor.specialization}</p>
-            <ul>
-              {reservations.map((reservation) => (
-                <li key={reservation.id}>
-                  {reservation.date}
-                </li>
-              ))}
-            </ul>
-          </div>
-          )}
+        {reservations && (
+        <div className="mt-3">
+          <ul className="list-group">
+            {reservations.map((reservation) => (
+              <li key={reservation.id} className="list-group-item">
+                {reservation.date}
+                {' '}
+                -
+                {reservation.doctor_name}
+                {' '}
+                -
+                {reservation.specialization}
+              </li>
+            ))}
+          </ul>
+        </div>
+        )}
       </main>
     </div>
   );
