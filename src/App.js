@@ -33,16 +33,10 @@ function App() {
           <Route path="/" element={<Doctors />} />
           <Route path="/doctors/:doctorId" element={<SingleDoctor />} />
           <Route path="/reserve/:doctorId" element={<Reserve />} />
+          <Route path="/reservations/:doctorId/:reservationId" element={<SingleReservation />} />
+          <Route path="/my-reservations" element={<ReservationList />} />
           <Route path="/add/doctor" element={<AddDoctor />} />
           <Route path="reservation/edit/:reservationId" element={<UpdateReservation />} />
-          <Route
-            path="/reservations/:doctorId/:reservationId"
-            element={<SingleReservation />}
-          />
-          <Route
-            path="/reservations/:userId/doctor/:doctorId"
-            element={<ReservationList />}
-          />
         </Route>
         <Route path="/login" element={<LoginSignUp />} />
         <Route path="*" element={<NoMatch />} />

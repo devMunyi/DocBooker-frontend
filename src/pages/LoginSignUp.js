@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
@@ -24,6 +25,7 @@ const LoginSignUp = () => {
         const data = await response.json();
         localStorage.setItem('user', JSON.stringify(data));
         toast.success('Logged in successfully!');
+        // toast.success(`${response.data} Logged in successfully!`);
         // User exists, redirect to landing page
         window.location.href = '/';
       } else if (response.status === 404) {

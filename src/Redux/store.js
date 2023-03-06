@@ -12,7 +12,8 @@ export default configureStore(
       doctor: doctorReducer,
       selectedDoctor: selectedDoctorReducer,
       doctors: allDoctors,
-      user,
+      // eslint-disable-next-line object-shorthand
+      user: user,
       reservations: reservationReducer,
     },
   },
