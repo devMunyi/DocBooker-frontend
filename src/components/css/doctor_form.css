@@ -30,7 +30,7 @@
 .add-doctor-form button[type="submit"] {
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10rem;
   background-color: #008cba;
   color: #fff;
   cursor: pointer;
