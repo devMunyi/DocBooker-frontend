@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import 'react-datepicker/dist/react-datepicker.css';
 import './css/doctor_details.css';
 
