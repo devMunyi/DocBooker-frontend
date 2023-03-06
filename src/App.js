@@ -15,6 +15,7 @@ import SingleDoctor from './pages/SingleDoctor';
 import NoMatch from './pages/NoMatch';
 import Reserve from './pages/Reserve';
 import ReservationList from './pages/ReservationList';
+import AddDoctor from './pages/AddDoctor';
 import SingleReservation from './pages/SingleReservation';
 import UpdateReservation from './pages/UpdateReservation';
 import LoginSignUp from './pages/LoginSignUp';
@@ -32,6 +33,7 @@ function App() {
           <Route path="/" element={<Doctors />} />
           <Route path="/doctors/:doctorId" element={<SingleDoctor />} />
           <Route path="/reserve/:doctorId" element={<Reserve />} />
+          <Route path="/add/doctor" element={<AddDoctor />} />
           <Route path="reservation/edit/:reservationId" element={<UpdateReservation />} />
           <Route
             path="/reservations/:doctorId/:reservationId"

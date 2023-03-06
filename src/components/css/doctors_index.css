@@ -1,0 +1,87 @@
+.doctors-index-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.doctors-card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+  margin-bottom: 3rem;
+  min-height: 43rem;
+}
+
+.doctors-index-container .pag-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #efefef;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  outline: none;
+  width: 8rem;
+  height: 4rem;
+}
+
+.doctors-index-container .prev-button {
+  margin-bottom: 2rem;
+}
+
+.doctors-index-container .active-button {
+  background-color: #589d1a;
+}
+
+@media (min-width: 768px) {
+  .doctors-index-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .doctors-card-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    order: 2;
+    min-height: auto;
+  }
+
+  .pag-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    outline: none;
+    width: 8rem;
+    height: 5rem;
+  }
+
+  .doctors-index-container .active-button {
+    background-color: #adda86;
+  }
+
+  .doctors-index-container .active-button:hover {
+    background-color: #589d1a;
+  }
+
+  .prev-button {
+    order: 1;
+    border-top-right-radius: 10rem;
+    border-bottom-right-radius: 10rem;
+  }
+
+  .next-button {
+    order: 3;
+    border-top-left-radius: 10rem;
+    border-bottom-left-radius: 10rem;
+  }
+}

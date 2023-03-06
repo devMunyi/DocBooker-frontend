@@ -1,23 +1,26 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import 'react-datepicker/dist/react-datepicker.css';
 import './css/doctor_details.css';
 
 function DoctorDetails({ doctor }) {
   return (
     <div className="doctor-details">
-      <div className="doctor-details__header">
+      <div className="doctor-image">
+        <img src={doctor.picture} alt="Doctor" />
+      </div>
+
+      <div className="doctor-information">
         <h2>{doctor.name}</h2>
         <h3>{doctor.specialization}</h3>
-      </div>
-      <div className="doctor-details__body">
-        <img src={doctor.photoUrl} alt="Doctor" />
-        <p>{doctor.contact}</p>
+        <p>{doctor.email}</p>
 
-        <div className="doctor-details__book-appointment">
-          <Link type="button" to={`/reserve/${doctor.id}`} className="btn btn-sm btn-outline-info rounded-pill py-2 px-4">
-            Book Appointment
+        <div className="book-appointment">
+          <Link to={`/reserve/${doctor.id}`}>
+            <button type="button">
+              Book Appointment
+            </button>
           </Link>
         </div>
       </div>
