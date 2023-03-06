@@ -16,7 +16,6 @@ function SingleReservation() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log('Called');
     dispatch(fetchReservation({ userId, doctorId, reservationId }));
   }, [dispatch, userId, doctorId, reservationId]);
 
