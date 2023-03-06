@@ -11,7 +11,7 @@ function SingleReservation() {
   const [isProcessing, setIsProcessing] = useState(false);
   const dispatch = useDispatch();
   const { reservationId, doctorId } = useParams();
-  const userId = 1;
+  const userId = JSON.parse(localStorage.getItem('user')).id;
 
   const navigate = useNavigate();
 
@@ -23,6 +23,12 @@ function SingleReservation() {
   const { reservation, isFetchingData } = useSelector(
     (state) => state.reservations,
   );
+
+  localStorage.setItem('reservation', JSON.stringify(reservation));
+
+  const handleUpdateBtnClick = () => {
+    navigate(`/reservation/edit/${reservation.id}`);
+  };
 
   const handleDelete = async () => {
     try {
@@ -88,6 +94,7 @@ function SingleReservation() {
             <div className="col-md-3">
               <div className="d-flex flex-column gap-3 actions justify-content-center align-items-center">
                 <button
+                  onClick={handleUpdateBtnClick}
                   type="button"
                   className="btn btn-outline-info btn-sm d-flex justify-content-center align-items-center gap-2"
                 >
