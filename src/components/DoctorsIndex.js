@@ -8,6 +8,10 @@ import './css/doctors_index.css';
 const DoctorsIndex = () => {
   const { doctors } = useSelector((state) => state.doctors);
 
+  if (doctors) {
+    localStorage.setItem('doctors', JSON.stringify(doctors));
+  }
+
   const [page, setPage] = useState(1);
   const pag = 3;
   const pagMax = Math.ceil((doctors.length / pag));
