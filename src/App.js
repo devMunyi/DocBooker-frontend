@@ -42,7 +42,7 @@ function App() {
             element={<SingleReservation />}
           />
           <Route
-            path="/reservations/:userId/doctor/:doctorId"
+            path="/my-reservations"
             element={<ReservationList />}
           />
         </Route>
