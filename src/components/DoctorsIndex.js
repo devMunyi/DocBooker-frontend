@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
 
 import DoctorCard from './DoctorCard';
 import './css/doctors_index.css';
 
-const DoctorsIndex = () => {
+const DoctorsIndex = ({ canDelete }) => {
   const { doctors } = useSelector((state) => state.doctors);
 
   if (doctors) {
@@ -28,7 +29,13 @@ const DoctorsIndex = () => {
       <div className="doctors-card-container">
         {
           filteredDocs.map(
-            (doctor) => <DoctorCard key={JSON.stringify(doctor)} doctor={doctor} />,
+            (doctor) => (
+              <DoctorCard
+                key={JSON.stringify(doctor)}
+                doctor={doctor}
+                canDelete={canDelete}
+              />
+            ),
           )
         }
       </div>
@@ -40,6 +47,14 @@ const DoctorsIndex = () => {
       </button>
     </div>
   );
+};
+
+DoctorsIndex.defaultProps = {
+  canDelete: false,
+};
+
+DoctorsIndex.propTypes = {
+  canDelete: PropTypes.bool,
 };
 
 export default DoctorsIndex;

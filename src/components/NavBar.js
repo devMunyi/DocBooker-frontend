@@ -92,7 +92,7 @@ function NavBar() {
           </NavLink>
 
           <NavLink
-            to="/add-doctor"
+            to="/doctors/delete"
             style={({ isActive }) => (isActive ? activeNav : undefined)}
             className="menu-item"
           >
