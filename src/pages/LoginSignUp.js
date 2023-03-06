@@ -1,11 +1,13 @@
 /* eslint-disable no-console */
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import PopUp from '../components/PopUp';
 import './css/login.css';
 
 const LoginSignUp = () => {
+  const navigate = useNavigate();
   const UserUrl = 'http://localhost:3000/api/users';
   const [username, setUsername] = useState('');
   const [showPopup, setShowPopup] = useState(false);
@@ -22,9 +24,7 @@ const LoginSignUp = () => {
         const data = await response.json();
         localStorage.setItem('user', JSON.stringify(data));
         toast.success('Logged in successfully!');
-        // toast.success(`${response.data} Logged in successfully!`);
-        // User exists, redirect to landing page
-        window.location.href = '/';
+        navigate('/');
       } else if (response.status === 404) {
         // User does not exist, show popup to confirm creating new user
         setShowPopup(true);
@@ -53,7 +53,7 @@ const LoginSignUp = () => {
         // New user created, redirect to landing page
         toast.success('User created successfully!');
         localStorage.setItem('user', JSON.stringify(data));
-        window.location.href = '/';
+        navigate('/');
       } else {
         throw new Error('Failed to create user');
       }

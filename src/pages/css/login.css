@@ -104,7 +104,12 @@
   cursor: pointer;
 }
 
-.popup .popup-content .action-buttons button:hover {
+.popup .popup-content .action-buttons .submit-button:hover {
   background-color: #449d44;
   border-color: #398439;
+}
+
+.popup .popup-content .action-buttons .cancel-button:hover {
+  background-color: red;
+  border-color: red;
 }
