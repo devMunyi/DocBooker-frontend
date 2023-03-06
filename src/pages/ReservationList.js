@@ -1,8 +1,10 @@
 import { useEffect, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { fetchReservations } from '../Redux/actions/reservations';
+import { fetchDoctors } from '../Redux/reducers/allDoctors';
 import { fetchSingleDoctor } from '../Redux/actions/doctors';
+// eslint-disable-next-line import/no-named-as-default
 import NavBar from '../components/NavBar';
 
 function ReservationList() {
@@ -10,9 +12,11 @@ function ReservationList() {
   const reservations = useSelector((state) => state.reservations.reservations);
   const doctor = useSelector((state) => state.doctors.doctor);
   const doctors = useSelector((state) => state.doctors.doctors);
-
-  const { userId, doctorId } = useParams();
+  const user = JSON.parse(localStorage.getItem('user'));
+  const userId = user.id;
+  let doctorId;
   const navigate = useNavigate();
+
   const params = useMemo(() => ({ userId, doctorId }), [userId, doctorId]);
 
   console.log('RESERVATIONS => ', reservations);
@@ -23,14 +27,21 @@ function ReservationList() {
   }, [dispatch, params]);
 
   useEffect(() => {
-    dispatch(fetchSingleDoctor(params));
+    dispatch(fetchDoctors(params));
+  }, [dispatch, params]);
+
+  useEffect(() => {
+    if (params.doctorId > 0) {
+      dispatch(fetchSingleDoctor(params));
+    }
   }, [dispatch, params]);
 
   const handleDoctorChange = (event) => {
     const selectedDoctorId = event.target.value;
-    navigate(`/reservations/${userId}/doctor/${selectedDoctorId}`);
+    navigate('/my-reservations');
     dispatch(fetchReservations({ userId, doctorId: selectedDoctorId }));
-    dispatch(fetchSingleDoctor({ userId, doctorId: selectedDoctorId }));
+    dispatch(fetchDoctors({ userId, doctorId: selectedDoctorId }));
+    dispatch(fetchSingleDoctor({ doctorId: selectedDoctorId, userId }));
   };
 
   return (
