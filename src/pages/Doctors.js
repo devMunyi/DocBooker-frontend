@@ -27,5 +27,4 @@ function Doctors() {
     </div>
   );
 }
-
 export default Doctors;
