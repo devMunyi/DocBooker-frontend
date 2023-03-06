@@ -33,7 +33,7 @@ function NavBar() {
       <aside className={`sidebar ${show ? 'is-active' : ''}`}>
         <div className="dropdown d-flex justify-content-center align-items-center border-bottom">
           <button
-            className="btn btn-secondary dropdown-toggle"
+            className="btn btn-secondary dropdown-toggle border-0"
             type="button"
             data-bs-toggle="dropdown"
             aria-expanded="false"
@@ -68,7 +68,7 @@ function NavBar() {
           </NavLink>
 
           <NavLink
-            to="/reserve/1/doctor/1"
+            to="/my-reservations"
             style={({ isActive }) => (isActive ? activeNav : undefined)}
             className="menu-item"
           >
@@ -76,7 +76,7 @@ function NavBar() {
           </NavLink>
 
           <NavLink
-            to="/reservations/2/doctor/4"
+            to="/"
             style={({ isActive }) => (isActive ? activeNav : undefined)}
             className="menu-item"
           >

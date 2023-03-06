@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default-member */
 import React from 'react';
 import { useSelector } from 'react-redux';
 import NavBar from '../components/NavBar';
