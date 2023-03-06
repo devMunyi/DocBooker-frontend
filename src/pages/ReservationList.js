@@ -15,6 +15,9 @@ function ReservationList() {
   const navigate = useNavigate();
   const params = useMemo(() => ({ userId, doctorId }), [userId, doctorId]);
 
+  console.log('RESERVATIONS => ', reservations);
+  console.log('DOCTOR => ', doctor);
+
   useEffect(() => {
     dispatch(fetchReservations(params));
   }, [dispatch, params]);

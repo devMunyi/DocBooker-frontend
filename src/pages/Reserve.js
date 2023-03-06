@@ -5,6 +5,7 @@ import axios from 'axios';
 import { DatePicker } from 'antd';
 import { toast } from 'react-toastify';
 import { SyncOutlined } from '@ant-design/icons';
+import moment from 'moment';
 import { fetchSingleDoctor } from '../Redux/actions/doctors';
 
 function Reserve() {
@@ -101,9 +102,10 @@ function Reserve() {
 
               <div className="d-flex gap-3 justify-content-center">
                 <DatePicker
-                  showTime
+                  format="YYYY-MM-DD"
                   onChange={handleDateChange}
-                  className="date-picker"
+                  className="date-picker rounded-0"
+                  disabledDate={(current) => current && current.valueOf() < moment().subtract(1, 'days')}
                 />
               </div>
 

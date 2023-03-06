@@ -4,6 +4,7 @@ import axios from 'axios';
 import { DatePicker } from 'antd';
 import { toast } from 'react-toastify';
 import moment from 'moment/moment';
+import dayjs from 'dayjs';
 
 function UpdateReservation() {
   const navigate = useNavigate();
@@ -87,7 +88,7 @@ function UpdateReservation() {
           </p>
           <div className="d-flex gap-3 justify-content-center">
             <select
-              style={{ width: '40%' }}
+              style={{ width: '27%' }}
               id="doctor-select"
               value={doctorId}
               onChange={handleDoctorChange}
@@ -100,10 +101,11 @@ function UpdateReservation() {
               ))}
             </select>
             <DatePicker
-              showTime
+              defaultValue={dayjs(reservation.date, 'YYYY-MM-DD')}
+              format="YYYY-MM-DD"
               onChange={handleDateChange}
               className="date-picker rounded-0"
-              defaultValue={moment(reservation.date, 'YYYY-MM-DD HH:mm:ss')}
+              disabledDate={(current) => current && current.valueOf() < moment().subtract(1, 'days')}
             />
           </div>
 
