@@ -147,8 +147,8 @@ Example:
 
 👤 **Samuel**
 
-- GitHub: []()
-- LinkedIn: []()
+- GitHub: [@devMunyi](https://github.com/devMunyi)
+- LinkedIn: [Samuel Munyi](https://www.linkedin.com/in/samuel-munyi)
 
 👤 **Julius**
 
@@ -196,7 +196,10 @@ If you like this project...
 
 > Give credit to everyone who inspired your codebase.
 
-I would like to thank...
+I would like to thank:
+- Microverse for providing an excellent curriculum that has helped me enhance my skills in software development.
+- Code Reviewers for their valuable feedback and guidance throughout my learning journey.
+- Everyone whose code was used including [Murat Korkmaz](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign) the creator of the original design.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
