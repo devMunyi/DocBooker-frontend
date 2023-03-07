@@ -22,7 +22,7 @@ function SingleDoctor() {
 
   if (status === 'failed' || status === 'succeeded') {
     if (Object.keys(selectedDoctor).length < 1) {
-      toast.error('There was an error in getting doctor\'s data');
+      toast.error('There was an error in getting the doctor\'s data');
       navigate('/');
     }
   }
