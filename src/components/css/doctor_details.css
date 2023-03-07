@@ -1,196 +1,124 @@
-img {
-  max-width: 100%;
-}
-
-.reservePage {
-  position: relative;
-  text-align: center;
-  color: white;
-  background-color: #589d1a;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.res-list {
+.doctor-details-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.reservePage img {
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(100%);
-  opacity: 0.1;
-}
-
-.reservePage .btn,
-.OneReservationPage .btn {
-  border-radius: 200px;
-  width: 150px;
-}
-
-/* Centered text */
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.reservePage .doc-name {
-  border-bottom: 1px solid #e6e2e2;
-}
-
-.date-picker {
-  color: #000;
-  background-color: #fff;
-  border-radius: 50px;
-}
-
-/* sidebar  */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Fire Sans', sans-serif;
-}
-
-.page {
+.doctor-details {
   display: flex;
-  min-height: 100vh;
+  flex-direction: column;
+  gap: 2rem;
+  height: 70%;
 }
 
-.sidebar {
-  flex: 1 1 0;
-  max-width: 200px;
-  padding: 1.5rem 1rem;
+.go-back-button {
+  height: 30%;
+}
+
+.go-back-button .prev-page-button {
+  border-top-right-radius: 10rem;
+  border-bottom-right-radius: 10rem;
   background-color: #589d1a;
-}
-
-.sidebar h3 {
-  color: #707793;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-  text-align: center;
-}
-
-.sidebar .menu {
-  margin: 0 -1rem;
-  text-align: center;
-}
-
-.sidebar .menu .menu-item {
-  display: block;
-  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #fff;
-  text-decoration: none;
-  transition: 0.2s linear;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  outline: none;
+  width: 6rem;
+  height: 4rem;
 }
 
-.sidebar .menu .menu-item:hover,
-.sidebar .menu .menu-item.is-active {
-  color: rgb(17, 0, 255);
-  border-right: 5px solid rgb(56, 7, 236);
+.go-back-button .prev-page-button:hover {
+  background-color: #4b8e18;
 }
 
-.content {
-  flex: 1 1 0;
-  padding: 2rem;
+@media only screen and (min-width: 768px) {
+  .doctor-details {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+  }
+
+  .doctor-details .doctor-image {
+    margin-right: 20px;
+    width: 60%;
+    max-width: 60%;
+    padding: 1rem;
+    height: 100%;
+  }
+
+  .doctor-details .doctor-information {
+    width: 40%;
+    max-width: 40%;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+  }
 }
 
-.content h1 {
-  color: #3c3f58;
-  font-size: 2rem;
-  margin-bottom: 1rem;
+.doctor-details .doctor-image img {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-.content p {
-  color: #707793;
+.doctor-details .doctor-information {
+  display: flex;
+  flex-direction: column;
 }
 
-.menu-toggle {
-  display: none;
-  position: fixed;
-  top: 2rem;
-  right: 2rem;
-  width: 60px;
-  height: 60px;
-  border-radius: 99px;
+.doctor-details .doctor-information h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  width: 100%;
+  text-align: right;
+  margin-bottom: 3rem;
+}
+
+.doctor-details .doctor-information h3 {
+  margin: 5px 0;
+  font-size: 0.8em;
+  font-weight: 600;
+  color: #555;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  gap: 3rem;
+  width: 100%;
+  height: 2rem;
+}
+
+.doctor-details .doctor-information .content-grey-bg {
+  background: rgba(85, 85, 85, 0.242);
+}
+
+.doctor-details .book-appointment {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5rem;
+  width: 100%;
+}
+
+.doctor-details .book-appointment button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10rem;
   background-color: #589d1a;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
 }
 
-.hamburger {
-  position: relative;
-  top: calc(50% - 2px);
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 32px;
-}
-
-.hamburger > span,
-.hamburger > span::before,
-.hamburger > span::after {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 4px;
-  border-radius: 99px;
-  background-color: #fff;
-  transition-duration: 0.25s;
-}
-
-.hamburger > span::before {
-  content: '';
-  top: -8px;
-}
-
-.hamburger > span::after {
-  content: '';
-  top: 8px;
-}
-
-.menu-toggle.is-active .hamburger > span {
-  transform: rotate(45deg);
-}
-
-.menu-toggle.is-active .hamburger > span::before {
-  top: 0;
-  transform: rotate(0deg);
-}
-
-.menu-toggle.is-active .hamburger > span::after {
-  top: 0;
-  transform: rotate(90deg);
-}
-
-@media (max-width: 1024px) {
-  .sidebar {
-    max-width: 200px;
-  }
-}
-
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .content {
-    padding-top: 8rem;
-  }
-
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: -200px;
-    height: 100vh;
-    width: 100%;
-    max-width: 200px;
-    transition: 0.2s linear;
-  }
-
-  .sidebar.is-active {
-    left: 0;
-  }
+.doctor-details .book-appointment button:hover {
+  background-color: #4b8e18;
+  border-radius: 10rem;
 }

@@ -29,7 +29,6 @@ function UpdateReservation() {
   const doctors = JSON.parse(localStorage.getItem('doctors'));
 
   const handleDateChange = (value, dateString) => {
-    console.log('Selected Time: ', value);
     setDate(dateString);
   };
 

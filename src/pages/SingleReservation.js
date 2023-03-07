@@ -23,7 +23,6 @@ function SingleReservation() {
   }
 
   useEffect(() => {
-    console.log('Called');
     dispatch(fetchReservation({ userId, doctorId, reservationId }));
     dispatch(fetchSingleDoctor({}));
   }, [dispatch, userId, doctorId, reservationId]);
