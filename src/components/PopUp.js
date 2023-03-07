@@ -6,8 +6,8 @@ const PopUp = ({ message, confirmAction, cancelAction }) => (
     <div className="popup-content">
       <p className="message">{message}</p>
       <div className="action-buttons">
-        <button type="button" onClick={cancelAction}>CANCEL</button>
-        <button type="button" onClick={confirmAction}>OK</button>
+        <button type="button" className="cancel-button" onClick={cancelAction}>CANCEL</button>
+        <button type="button" className="submit-button" onClick={confirmAction}>OK</button>
       </div>
     </div>
   </div>
