@@ -8,19 +8,25 @@ import dayjs from 'dayjs';
 
 function UpdateReservation() {
   const navigate = useNavigate();
+
+  const userId = localStorage.getItem('user')
+    ? JSON.parse(localStorage.getItem('user')).id
+    : null;
+
+  if (!userId === null) {
+    navigate('/login');
+  }
+
   const [isProcessing, setIsProcessing] = useState(false);
   const [doctorId, setDoctorId] = useState(
-    JSON.parse(localStorage.getItem('reservation')).doctorid,
+    JSON.parse(localStorage.getItem('reservation')) ? JSON.parse(localStorage.getItem('reservation')).doctorid : null,
   );
   const [date, setDate] = useState(
-    JSON.parse(localStorage.getItem('reservation')).date,
+    JSON.parse(localStorage.getItem('reservation')) ? JSON.parse(localStorage.getItem('reservation')).date : null,
   );
 
   const reservation = JSON.parse(localStorage.getItem('reservation'));
   const doctors = JSON.parse(localStorage.getItem('doctors'));
-
-  const user = JSON.parse(localStorage.getItem('user'));
-  const { id: userId } = user;
 
   const handleDateChange = (value, dateString) => {
     setDate(dateString);
@@ -102,14 +108,14 @@ function UpdateReservation() {
               onChange={handleDoctorChange}
               className="rounded-0"
             >
-              {doctors.map((doctor) => (
+              {doctors && doctors.map((doctor) => (
                 <option key={doctor.id} value={doctor.id}>
                   {doctor.name}
                 </option>
               ))}
             </select>
             <DatePicker
-              defaultValue={dayjs(reservation.date, 'YYYY-MM-DD')}
+              defaultValue={dayjs(reservation && reservation.date, 'YYYY-MM-DD')}
               format="YYYY-MM-DD"
               onChange={handleDateChange}
               className="date-picker rounded-0"
@@ -119,7 +125,7 @@ function UpdateReservation() {
 
           <div className="d-flex gap-3 justify-content-center mt-4">
             <Link
-              to={`/reservations/${reservation.doctorid}/${reservation.id}`}
+              to={`/reservations/${reservation && reservation.doctorid}/${reservation && reservation.id}`}
               className="btn btn-outline-light pb-0"
             >
               Go Back

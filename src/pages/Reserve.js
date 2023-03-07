@@ -15,7 +15,13 @@ function Reserve() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { doctorId } = useParams(); // get doctor's id from url
-  const userId = JSON.parse(localStorage.getItem('user')).id; // grab logged in user id
+  const userId = localStorage.getItem('user')
+    ? JSON.parse(localStorage.getItem('user')).id
+    : null;
+
+  if (!userId === null) {
+    navigate('/login');
+  }
 
   // get single doctor info form redux store
   const { singleDoctor, isFetchingData } = useSelector(

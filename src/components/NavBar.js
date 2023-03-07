@@ -5,6 +5,11 @@ import { UserOutlined } from '@ant-design/icons';
 function NavBar() {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
+  const username = JSON.parse(localStorage.getItem('user')) ? JSON.parse(localStorage.getItem('user')).username : null;
+
+  if (username === null) {
+    navigate('/login');
+  }
 
   const activeNav = {
     textDecoration: 'underline',
@@ -45,8 +50,7 @@ function NavBar() {
             />
             <br />
             <small className="text-light">
-              Welcome
-              Sam
+              { `Welcome ${username}` }
             </small>
           </button>
           <ul className="dropdown-menu">
