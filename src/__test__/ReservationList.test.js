@@ -6,8 +6,7 @@ import store from '../Redux/store';
 import ReservationList from '../pages/ReservationList';
 
 describe('ReservationList component', () => {
-  
-it('renders without crashing', () => {
+  it('renders without crashing', () => {
     localStorage.setItem('user', JSON.stringify({ id: 123 }));
     const { getAllByText } = render(
       <Provider store={store}>
@@ -18,5 +17,5 @@ it('renders without crashing', () => {
     );
     const headers = getAllByText('My Reservations');
     expect(headers[0]).toBeInTheDocument();
-  });  
+  });
 });

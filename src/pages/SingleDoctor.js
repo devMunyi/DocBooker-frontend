@@ -18,7 +18,7 @@ function SingleDoctor() {
     if (!selectedDoctor || selectedDoctor.id !== doctorId) {
       dispatch(fetchDoctor(doctorId));
     }
-  }, []);
+  }, [dispatch, doctorId, selectedDoctor]);
 
   if (status === 'failed' || status === 'succeeded') {
     if (Object.keys(selectedDoctor).length < 1) {
