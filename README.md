@@ -19,7 +19,6 @@
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
@@ -177,22 +176,6 @@ I would like to thank:
 - Microverse for providing an excellent curriculum that has helped me enhance my skills in software development.
 - Code Reviewers for their valuable feedback and guidance throughout my learning journey.
 - Everyone whose code was used including [Murat Korkmaz](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign) the creator of the original design.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ (optional) -->
-
-## ❓ FAQ (OPTIONAL) <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
-
-- **[Question_1]**
-
-  - [Answer_1]
-
-- **[Question_2]**
-
-  - [Answer_2]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
