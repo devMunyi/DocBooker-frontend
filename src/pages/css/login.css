@@ -1,0 +1,115 @@
+/* CSS for login page */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 5px;
+  width: 90%;
+  margin: auto;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+.login-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.login-container .input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
+}
+
+.login-container .username-input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+  width: 15rem;
+}
+
+.login-container .login-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10rem;
+  background-color: #07c;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-container .login-btn:hover {
+  background-color: #589d1a;
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  height: 14rem;
+}
+
+.popup .popup-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.popup .popup-content .action-buttons {
+  display: flex;
+  gap: 3rem;
+  justify-content: flex-end;
+}
+
+/* .popup .popup button {
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.popup .popup button:hover {
+  background-color: #ccc;
+  color: #fff;
+} */
+
+.popup .popup-content .action-buttons button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #07c;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.popup .popup-content .action-buttons .submit-button:hover {
+  background-color: #449d44;
+  border-color: #398439;
+}
+
+.popup .popup-content .action-buttons .cancel-button:hover {
+  background-color: red;
+  border-color: red;
+}
