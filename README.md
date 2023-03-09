@@ -137,9 +137,8 @@ Example:
 
 👤 **Julius**
 
-- GitHub: []()
-- LinkedIn: []()
-
+- GitHub: [@j-tee](https://github.com/j-tee)
+- LinkedIn: [Julius Tetteh](https://www.linkedin.com/in/julius-tetteh)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
