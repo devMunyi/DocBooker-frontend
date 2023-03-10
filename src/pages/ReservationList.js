@@ -43,7 +43,7 @@ function ReservationList() {
   return (
     <div className="page">
       <NavBar />
-      <main className="container">
+      <main className="content">
         <h1 className="mt-3">My Reservations</h1>
         <div className="mt-3">Select a doctor:</div>
         <select id="doctor-select" value={doctorId} onChange={handleDoctorChange} className="form-select mb-3">
