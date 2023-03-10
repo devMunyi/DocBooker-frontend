@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchDoctor = createAsyncThunk('doctors/fetchDoctor', async (doctorId) => {
   const user = JSON.parse(localStorage.getItem('user'));
-  const response = await fetch(`http://localhost:3000/api/users/${user.username}/doctors/${doctorId}`, {
+  const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/users/${user.username}/doctors/${doctorId}`, {
     method: 'GET',
     mode: 'cors',
   });
