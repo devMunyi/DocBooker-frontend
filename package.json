@@ -1,5 +1,6 @@
 {
   "name": "front-end-booking-app",
+  "homepage": "http://devMunyi.github.io/booking-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -28,6 +29,8 @@
   },
   "scripts": {
     "start": "PORT=3006 react-scripts start",
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test  --transformIgnorePatterns \"node_modules/(?!axios)/\"",
     "eject": "react-scripts eject"
