@@ -51,7 +51,7 @@ function UpdateReservation() {
     try {
       setIsProcessing(true);
       const response = await axios.put(
-        `http://localhost:3000/api/users/${userId}/doctors/${doctorId}/reservations/${reservation.id}`,
+        `${process.env.REACT_APP_API_BASE_URL}/users/${userId}/doctors/${doctorId}/reservations/${reservation.id}`,
         {
           reservation: {
             user_id: userId,

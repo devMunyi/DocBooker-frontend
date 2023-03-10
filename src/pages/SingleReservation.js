@@ -42,7 +42,7 @@ function SingleReservation() {
       setIsProcessing(true);
 
       const response = await axios.delete(
-        `http://localhost:3000/api/users/${userId}/doctors/${doctorId}/reservations/${reservationId}`,
+        `${process.env.REACT_APP_API_BASE_URL}/users/${userId}/doctors/${doctorId}/reservations/${reservationId}`,
         {
           headers: {
             'Content-Type': 'application/json',
