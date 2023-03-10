@@ -8,7 +8,7 @@ import './css/doctor_page.css';
 
 function Doctors() {
   const dispatch = useDispatch();
-  const user = JSON.parse(sessionStorage.getItem('user'));
+  const user = JSON.parse(localStorage.getItem('user'));
 
   useEffect(() => {
     dispatch(fetchDoctors(user.username));

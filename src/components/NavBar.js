@@ -5,7 +5,7 @@ import { UserOutlined } from '@ant-design/icons';
 function NavBar() {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
-  const username = JSON.parse(sessionStorage.getItem('user')) ? JSON.parse(sessionStorage.getItem('user')).username : null;
+  const username = JSON.parse(localStorage.getItem('user')) ? JSON.parse(localStorage.getItem('user')).username : null;
 
   if (username === null) {
     navigate('/login');
@@ -20,7 +20,7 @@ function NavBar() {
   };
 
   const handleLogout = () => {
-    sessionStorage.removeItem('user');
+    localStorage.removeItem('user');
     navigate('/login');
   };
 

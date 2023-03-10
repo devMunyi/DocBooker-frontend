@@ -12,7 +12,7 @@ function ReservationList() {
   const reservations = useSelector((state) => state.reservations.reservations);
   // const doctor = useSelector((state) => state.doctors.doctor);
   const doctors = useSelector((state) => state.doctors.doctors);
-  const user = JSON.parse(sessionStorage.getItem('user'));
+  const user = JSON.parse(localStorage.getItem('user'));
   const userId = user.id;
   let doctorId;
   const navigate = useNavigate();

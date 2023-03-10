@@ -15,8 +15,8 @@ function Reserve() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { doctorId } = useParams(); // get doctor's id from url
-  const userId = sessionStorage.getItem('user')
-    ? JSON.parse(sessionStorage.getItem('user')).id
+  const userId = localStorage.getItem('user')
+    ? JSON.parse(localStorage.getItem('user')).id
     : null;
 
   if (!userId === null) {
@@ -37,7 +37,7 @@ function Reserve() {
     setDate(dateString);
   };
 
-  sessionStorage.setItem('doctor', JSON.stringify(singleDoctor));
+  localStorage.setItem('doctor', JSON.stringify(singleDoctor));
 
   const handleBook = async () => {
     if (date === '') {

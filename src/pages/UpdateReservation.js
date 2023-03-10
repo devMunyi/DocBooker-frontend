@@ -9,8 +9,8 @@ import dayjs from 'dayjs';
 function UpdateReservation() {
   const navigate = useNavigate();
 
-  const userId = sessionStorage.getItem('user')
-    ? JSON.parse(sessionStorage.getItem('user')).id
+  const userId = localStorage.getItem('user')
+    ? JSON.parse(localStorage.getItem('user')).id
     : null;
 
   if (!userId === null) {
@@ -19,14 +19,14 @@ function UpdateReservation() {
 
   const [isProcessing, setIsProcessing] = useState(false);
   const [doctorId, setDoctorId] = useState(
-    JSON.parse(sessionStorage.getItem('reservation')) ? JSON.parse(sessionStorage.getItem('reservation')).doctorid : null,
+    JSON.parse(localStorage.getItem('reservation')) ? JSON.parse(localStorage.getItem('reservation')).doctorid : null,
   );
   const [date, setDate] = useState(
-    JSON.parse(sessionStorage.getItem('reservation')) ? JSON.parse(sessionStorage.getItem('reservation')).date : null,
+    JSON.parse(localStorage.getItem('reservation')) ? JSON.parse(localStorage.getItem('reservation')).date : null,
   );
 
-  const reservation = JSON.parse(sessionStorage.getItem('reservation'));
-  const doctors = JSON.parse(sessionStorage.getItem('doctors'));
+  const reservation = JSON.parse(localStorage.getItem('reservation'));
+  const doctors = JSON.parse(localStorage.getItem('doctors'));
 
   const handleDateChange = (value, dateString) => {
     setDate(dateString);
