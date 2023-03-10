@@ -32,6 +32,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<ProtectedRoute />}>
           <Route path="/" element={<Doctors />} />
+          <Route path="/add-reservation" element={<Doctors />} />
           <Route path="/doctors/:doctorId" element={<SingleDoctor />} />
           <Route path="/reserve/:doctorId" element={<Reserve />} />
           <Route path="/add/doctor" element={<AddDoctor />} />
