@@ -14,8 +14,8 @@ function SingleReservation() {
   const { reservationId, doctorId } = useParams();
   const navigate = useNavigate();
 
-  const userId = localStorage.getItem('user')
-    ? JSON.parse(localStorage.getItem('user')).id
+  const userId = sessionStorage.getItem('user')
+    ? JSON.parse(sessionStorage.getItem('user')).id
     : null;
 
   if (!userId === null) {
@@ -31,7 +31,7 @@ function SingleReservation() {
     (state) => state.reservations,
   );
 
-  localStorage.setItem('reservation', JSON.stringify(reservation));
+  sessionStorage.setItem('reservation', JSON.stringify(reservation));
 
   const handleUpdateBtnClick = () => {
     navigate(`/reservation/edit/${reservation.id}`);

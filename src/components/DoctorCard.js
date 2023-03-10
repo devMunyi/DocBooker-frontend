@@ -8,7 +8,7 @@ import { doctorAdded } from '../Redux/reducers/selectedDoctor';
 import './css/doctor_card.css';
 
 function DoctorCard({ doctor, canDelete }) {
-  const user = JSON.parse(localStorage.getItem('user'));
+  const user = JSON.parse(sessionStorage.getItem('user'));
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const detailsUrl = `/doctors/${doctor.id}`;

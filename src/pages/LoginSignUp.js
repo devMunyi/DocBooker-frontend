@@ -22,7 +22,7 @@ const LoginSignUp = () => {
       const response = await fetch(`${UserUrl}/${username}`);
       if (response.ok) {
         const data = await response.json();
-        localStorage.setItem('user', JSON.stringify(data));
+        sessionStorage.setItem('user', JSON.stringify(data));
         toast.success('Logged in successfully!');
         navigate('/');
       } else if (response.status === 404) {
@@ -52,7 +52,7 @@ const LoginSignUp = () => {
         const data = await response.json();
         // New user created, redirect to landing page
         toast.success('User created successfully!');
-        localStorage.setItem('user', JSON.stringify(data));
+        sessionStorage.setItem('user', JSON.stringify(data));
         navigate('/');
       } else {
         throw new Error('Failed to create user');

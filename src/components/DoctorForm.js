@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import './css/doctor_form.css';
 
 function AddDoctorForm() {
-  const user = JSON.parse(localStorage.getItem('user'));
+  const user = JSON.parse(sessionStorage.getItem('user'));
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [specialization, setSpecialization] = useState('');

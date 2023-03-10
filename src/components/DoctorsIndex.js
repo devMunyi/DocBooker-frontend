@@ -10,7 +10,7 @@ const DoctorsIndex = ({ canDelete }) => {
   const { doctors } = useSelector((state) => state.doctors);
 
   if (doctors) {
-    localStorage.setItem('doctors', JSON.stringify(doctors));
+    sessionStorage.setItem('doctors', JSON.stringify(doctors));
   }
 
   const [page, setPage] = useState(1);
