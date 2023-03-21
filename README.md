@@ -25,7 +25,7 @@
 
 # 📖 [DocBooker] <a name="about-project"></a>
 
-> A full-stack app built with ReactJs Frontend, that relies on a Rails Backend, to allow a users book an appointment with a doctor, from the list of doctors available.
+> A Frontend ReactJs app, that relies on a Rails Backend, to allow a users book an appointment with a doctor, from the list of doctors available.
 
 ## 🛠 Built With <a name="built-with"></a>
 
