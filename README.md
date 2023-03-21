@@ -39,8 +39,6 @@
   </ul>
 </details>
 
-<details>
-
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
