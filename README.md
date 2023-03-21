@@ -13,7 +13,6 @@
   - [Install](#install)
   - [Usage](#usage)
   - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
@@ -25,7 +24,7 @@
 
 # 📖 [DocBooker] <a name="about-project"></a>
 
-> A Frontend ReactJs app, that relies on a Rails Backend, to allow a users book an appointment with a doctor, from the list of doctors available.
+> A Frontend ReactJs app, that relies on a [Rails Backend](https://github.com/devMunyi/DocBooker-Backend), to allow a users book an appointment with a doctor, from the list of doctors available.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -34,15 +33,13 @@
   <summary>Client</summary>
   <ul>
     <li><a href="https://reactjs.org/">React.js</a></li>
+    <li><a href="https://redux.js.org/">Redux.js</a></li>
+    <li><a href="https://getbootstrap.com/">Bootstrap</a></li>
+    <li><a href="https://ant.design/">AntDesign</a></li>
   </ul>
 </details>
 
 <details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-  </ul>
-</details>
 
 <!-- Features -->
 
@@ -69,8 +66,8 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-- Have node installed
-- Have the [rails backend](https://github.com/j-tee/booking-app.git) running
+- Node installed
+- The [rails backend](https://github.com/devMunyi/DocBooker-Backend) running
 
 ### Setup
 
@@ -78,11 +75,11 @@ Clone this repository to your desired folder:
 
 To run and view this application, you will first have to clone a local version of this repository using:
 
-`git clone https://github.com/j-tee/front-end-booking-app.git`
+`git clone https://github.com/devMunyi/DocBooker-frontend.git`
 
 After that navigate to the newly created folder:
 
-`cd front-end-booking-app`
+`cd DocBooker-frontend
 
 ### Install
 
@@ -105,17 +102,6 @@ To run tests, run the following command:
 
 `npm test`
 
-### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
-
-```
- -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
