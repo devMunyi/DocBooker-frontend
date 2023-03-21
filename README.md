@@ -23,11 +23,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [booking-app ] <a name="about-project"></a>
+# 📖 [DocBooker] <a name="about-project"></a>
 
-> In this application we have built a front end react app, that relies on a rails backend, to allow a user to book an appointments with a doctor, from the list of doctors available
-
-**[booking-app]** is an application which allows users to book appointments with doctors.
+> A full-stack app built with ReactJs Frontend, that relies on a Rails Backend, to allow a users book an appointment with a doctor, from the list of doctors available.
 
 ## 🛠 Built With <a name="built-with"></a>
 
