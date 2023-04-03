@@ -11,15 +11,21 @@ const LoginSignUp = () => {
   const UserUrl = `${process.env.REACT_APP_API_BASE_URL}/users`;
   const [username, setUsername] = useState('');
   const [showPopup, setShowPopup] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
   };
 
   const handleLogin = async () => {
-    if (username.trim().length < 1) return false;
+    if (username.trim().length < 1) {
+      toast.error('Username is required');
+      return false;
+    }
     try {
+      setLoading(true);
       const response = await fetch(`${UserUrl}/${username}`);
+      console.log('RESPONSE => ', response);
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem('user', JSON.stringify(data));
@@ -33,6 +39,8 @@ const LoginSignUp = () => {
       }
     } catch (error) {
       toast.error('There is a connection issue, please try again later');
+    } finally {
+      setLoading(false);
     }
     return true;
   };
@@ -72,7 +80,24 @@ const LoginSignUp = () => {
       <div className="input-container">
         <input className="username-input" type="text" value={username} onChange={handleUsernameChange} placeholder="username" />
       </div>
-      <button className="login-btn" type="button" onClick={handleLogin}>Login/Signup</button>
+      {
+        loading ? (
+          <button
+            className="btn btn-outline-primary"
+            type="button"
+            disabled
+          >
+            <span
+              className="spinner-border spinner-border-sm"
+              role="status"
+              aria-hidden="true"
+            />
+            <span className="">Loading...</span>
+          </button>
+        )
+          : (<button className="login-btn" type="button" onClick={handleLogin}>Login/Signup</button>)
+      }
+
       {showPopup && (
         <PopUp
           className="popup"
